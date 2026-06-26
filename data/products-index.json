@@ -1,7 +1,42 @@
 {
-  "_generated": "Ky skedar gjenerohet automatikisht nga GitHub Action prej /data/products/*.json. MOS e ndrysho me dorë.",
+  "_generated": "Gjenerohet automatikisht nga GitHub Action prej /data/products/*.json. MOS e ndrysho me dorë.",
   "updated": "2026-06-26",
   "products": [
+    {
+      "name": "Adidas Samba OG",
+      "colorway": "Cloud White",
+      "brand": "adidas",
+      "tier": "mainstream",
+      "price": 100,
+      "oldPrice": 120,
+      "currency": "EUR",
+      "sizes": [
+        {
+          "eu": 43,
+          "available": true
+        },
+        {
+          "eu": 44,
+          "available": true
+        },
+        {
+          "eu": 45,
+          "available": true
+        }
+      ],
+      "images": [
+        "/assets/products/Samba_OG_Shoes_White_B75806_01_00_standard.avif",
+        "/assets/products/Samba_OG_Shoes_White_B75806_04_standard.avif",
+        "/assets/products/Samba_OG_Shoes_White_B75806_43_detail.avif"
+      ],
+      "description": "Lindur në fushë të futbollit, Samba është një ikonë e rrugës. Kjo siluetë është e vërtetë për fillimin e saj me një lëkurë të shijshme, me profil të ulët, lëkure të butë të sipërme, mbivendosjet e kamoshit dhe gomën, duke e bërë atë një element kryesor në dollapin e të gjithëve - në dhe jashtë fushës.",
+      "featured": false,
+      "inStock": true,
+      "dateAdded": "2026-06-26",
+      "seoTitle": "Adidas Samba OG - Tophaxhi Shoes - Bli në Kosovë",
+      "seoDescription": "Adidas Samba OG - Tophaxhi Shoes - Bli në Kosovë",
+      "id": "adidas-samba-og"
+    },
     {
       "id": "jordan-5-black-carolina",
       "name": "Jordan 5 Retro Low",
@@ -12,11 +47,34 @@
       "oldPrice": 270,
       "currency": "EUR",
       "sizes": [
-        { "eu": 40, "available": true }, { "eu": 41, "available": true },
-        { "eu": 42, "available": true }, { "eu": 43, "available": false },
-        { "eu": 44, "available": true }, { "eu": 45, "available": false }
+        {
+          "eu": 40,
+          "available": true
+        },
+        {
+          "eu": 41,
+          "available": true
+        },
+        {
+          "eu": 42,
+          "available": true
+        },
+        {
+          "eu": 43,
+          "available": false
+        },
+        {
+          "eu": 44,
+          "available": true
+        },
+        {
+          "eu": 45,
+          "available": false
+        }
       ],
-      "images": ["/assets/products/_placeholder.svg"],
+      "images": [
+        "/assets/products/_placeholder.svg"
+      ],
       "description": "Jordan 5 Retro Low në 'Black Carolina' (UNC) — e zezë me detaje University Blue. Një drop hype me siluetë legjendare dhe shollë reflektive. Numër i kufizuar. 100% origjinale, garantojmë. TODO (pronari): ngarko fotot reale.",
       "featured": true,
       "inStock": true,
@@ -34,11 +92,34 @@
       "oldPrice": null,
       "currency": "EUR",
       "sizes": [
-        { "eu": 40, "available": true }, { "eu": 41, "available": true },
-        { "eu": 42, "available": true }, { "eu": 43, "available": true },
-        { "eu": 44, "available": false }, { "eu": 45, "available": true }
+        {
+          "eu": 40,
+          "available": true
+        },
+        {
+          "eu": 41,
+          "available": true
+        },
+        {
+          "eu": 42,
+          "available": true
+        },
+        {
+          "eu": 43,
+          "available": true
+        },
+        {
+          "eu": 44,
+          "available": false
+        },
+        {
+          "eu": 45,
+          "available": true
+        }
       ],
-      "images": ["/assets/products/_placeholder.svg"],
+      "images": [
+        "/assets/products/_placeholder.svg"
+      ],
       "description": "Adidas Campus 00s në ngjyrën Core Black — silueta klasike e terrace-it me suede premium dhe shollë të trashë. Komode për çdo ditë, lehtë për t'u kombinuar. 100% origjinale. TODO (pronari): ngarko fotot reale.",
       "featured": false,
       "inStock": true,
@@ -56,12 +137,38 @@
       "oldPrice": null,
       "currency": "EUR",
       "sizes": [
-        { "eu": 39, "available": true }, { "eu": 40, "available": true },
-        { "eu": 41, "available": true }, { "eu": 42, "available": true },
-        { "eu": 43, "available": true }, { "eu": 44, "available": true },
-        { "eu": 45, "available": true }
+        {
+          "eu": 39,
+          "available": true
+        },
+        {
+          "eu": 40,
+          "available": true
+        },
+        {
+          "eu": 41,
+          "available": true
+        },
+        {
+          "eu": 42,
+          "available": true
+        },
+        {
+          "eu": 43,
+          "available": true
+        },
+        {
+          "eu": 44,
+          "available": true
+        },
+        {
+          "eu": 45,
+          "available": true
+        }
       ],
-      "images": ["/assets/products/_placeholder.svg"],
+      "images": [
+        "/assets/products/_placeholder.svg"
+      ],
       "description": "Nike Air Force 1 '07 në Triple White — klasiku i përditshëm që shkon me gjithçka. Lëkurë e bardhë, shollë Air, padurim i pasosur. 100% origjinale. TODO (pronari): ngarko fotot reale të produktit.",
       "featured": false,
       "inStock": true,
