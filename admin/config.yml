@@ -6,7 +6,7 @@
 
 backend:
   name: github
-  repo: PRONARI/tophaxhi          # TODO: zëvendëso me "përdoruesi-yt/emri-i-repo"
+  repo: YlliLimited/tophaxhi
   branch: main
   # TODO: vendos URL-në e Cloudflare Worker-it për hyrjen (shih README → Admin).
   base_url: https://OAUTH-WORKER.tophaxhi.workers.dev
