@@ -1,73 +1,115 @@
 {
-  "_generated": "Ky skedar gjenerohet automatikisht nga GitHub Action prej /data/products/*.json. MOS e ndrysho me dorë.",
+  "_generated": "Gjenerohet automatikisht nga GitHub Action prej /data/products/*.json. MOS e ndrysho me dorë.",
   "updated": "2026-06-26",
   "products": [
     {
-      "id": "jordan-5-black-carolina",
-      "name": "Jordan 5 Retro Low",
-      "colorway": "Black / Carolina (UNC)",
-      "brand": "jordan",
-      "tier": "hype",
-      "price": 240,
-      "oldPrice": 270,
-      "currency": "EUR",
-      "sizes": [
-        { "eu": 40, "available": true }, { "eu": 41, "available": true },
-        { "eu": 42, "available": true }, { "eu": 43, "available": false },
-        { "eu": 44, "available": true }, { "eu": 45, "available": false }
-      ],
-      "images": ["/assets/products/_placeholder.svg"],
-      "description": "Jordan 5 Retro Low në 'Black Carolina' (UNC) — e zezë me detaje University Blue. Një drop hype me siluetë legjendare dhe shollë reflektive. Numër i kufizuar. 100% origjinale, garantojmë. TODO (pronari): ngarko fotot reale.",
-      "featured": true,
-      "inStock": true,
-      "dateAdded": "2026-06-26",
-      "seoTitle": "Jordan 5 Low Black Carolina (UNC) — Bli në Kosovë | Tophaxhi",
-      "seoDescription": "Jordan 5 Retro Low 'Black Carolina' origjinale në Kosovë. Bomba e javës te Tophaxhi. Pagesa në dorë, dërgesa në tërë Kosovën."
-    },
-    {
-      "id": "adidas-campus-00s-black",
-      "name": "Adidas Campus 00s",
-      "colorway": "Core Black / White",
+      "name": "Adidas Samba OG",
+      "colorway": "Cloud White",
       "brand": "adidas",
       "tier": "mainstream",
-      "price": 120,
-      "oldPrice": null,
+      "price": 100,
+      "oldPrice": 120,
       "currency": "EUR",
       "sizes": [
-        { "eu": 40, "available": true }, { "eu": 41, "available": true },
-        { "eu": 42, "available": true }, { "eu": 43, "available": true },
-        { "eu": 44, "available": false }, { "eu": 45, "available": true }
+        {
+          "eu": 43,
+          "available": true
+        },
+        {
+          "eu": 44,
+          "available": true
+        },
+        {
+          "eu": 45,
+          "available": true
+        }
       ],
-      "images": ["/assets/products/_placeholder.svg"],
-      "description": "Adidas Campus 00s në ngjyrën Core Black — silueta klasike e terrace-it me suede premium dhe shollë të trashë. Komode për çdo ditë, lehtë për t'u kombinuar. 100% origjinale. TODO (pronari): ngarko fotot reale.",
+      "images": [
+        "/assets/products/Samba_OG_Shoes_White_B75806_01_00_standard.avif",
+        "/assets/products/Samba_OG_Shoes_White_B75806_04_standard.avif",
+        "/assets/products/Samba_OG_Shoes_White_B75806_43_detail.avif"
+      ],
+      "description": "Lindur në fushë të futbollit, Samba është një ikonë e rrugës. Kjo siluetë është e vërtetë për fillimin e saj me një lëkurë të shijshme, me profil të ulët, lëkure të butë të sipërme, mbivendosjet e kamoshit dhe gomën, duke e bërë atë një element kryesor në dollapin e të gjithëve - në dhe jashtë fushës.",
       "featured": false,
       "inStock": true,
-      "dateAdded": "2026-06-25",
-      "seoTitle": "Adidas Campus 00s Black — Bli online në Kosovë | Tophaxhi Sneakers",
-      "seoDescription": "Bli Adidas Campus 00s Core Black origjinale në Kosovë. Pagesa në dorë, dërgesa në tërë Kosovën. Porosit në DM, WhatsApp ose në faqe."
+      "dateAdded": "2026-06-26",
+      "seoTitle": "Adidas Samba OG - Tophaxhi Shoes - Bli në Kosovë",
+      "seoDescription": "Adidas Samba OG - Tophaxhi Shoes - Bli në Kosovë",
+      "id": "adidas-samba-og"
     },
     {
-      "id": "nike-air-force-1-07-white",
-      "name": "Nike Air Force 1 '07",
-      "colorway": "Triple White",
-      "brand": "nike",
-      "tier": "everyday",
-      "price": 95,
-      "oldPrice": null,
+      "name": "Air Jordan 5 Retro OG \"White Metallic\"",
+      "colorway": "White",
+      "brand": "jordan",
+      "tier": "mainstream",
+      "price": 215,
+      "oldPrice": 250,
       "currency": "EUR",
       "sizes": [
-        { "eu": 39, "available": true }, { "eu": 40, "available": true },
-        { "eu": 41, "available": true }, { "eu": 42, "available": true },
-        { "eu": 43, "available": true }, { "eu": 44, "available": true },
-        { "eu": 45, "available": true }
+        {
+          "eu": 46,
+          "available": true
+        },
+        {
+          "eu": 47,
+          "available": true
+        },
+        {
+          "eu": 48,
+          "available": true
+        }
       ],
-      "images": ["/assets/products/_placeholder.svg"],
-      "description": "Nike Air Force 1 '07 në Triple White — klasiku i përditshëm që shkon me gjithçka. Lëkurë e bardhë, shollë Air, padurim i pasosur. 100% origjinale. TODO (pronari): ngarko fotot reale të produktit.",
+      "images": [
+        "/assets/products/pasted-image-1782490410455.png",
+        "/assets/products/pasted-image-1782490416145.png",
+        "/assets/products/pasted-image-1782490425008.png",
+        "/assets/products/pasted-image-1782490432569.png",
+        "/assets/products/pasted-image-1782490439484.png",
+        "/assets/products/pasted-image-1782490447379.png"
+      ],
+      "description": "Merrni pjesën tuaj të historisë së Jordanit me Air Jordan 5 Retro. Bazuar në këpucën klasike të lojërave të vitit 1990, ajo ka të gjitha detajet ikonike si jaka e fryrë, këmbana me dantella dhe linjat e dizajnit të frymëzuara nga aeroplanët luftarakë. Pjesa e sipërme e bardhë e pastër është e balancuar me detaje argjendi metalik dhe një shputë të tejdukshme, më pas e theksuar me markën Nike Air në thembër për të kompletuar pamjen klasike.",
       "featured": false,
       "inStock": true,
-      "dateAdded": "2026-06-24",
-      "seoTitle": "Nike Air Force 1 '07 White — Bli online në Kosovë | Tophaxhi",
-      "seoDescription": "Nike Air Force 1 '07 Triple White origjinale në Kosovë. Atlete e përditshme me pagesë në dorë. Dërgesa në tërë Kosovën."
+      "dateAdded": "2026-06-26",
+      "seoTitle": "Air Jordan 5 Retro OG \"White Metallic\" - Tophaxhi Sneakers - Bli në Kosovë",
+      "seoDescription": "Air Jordan 5 Retro OG \"White Metallic\" - Tophaxhi Sneakers - Bli në Kosovë",
+      "id": "air-jordan-5-retro-og-white-metallic"
+    },
+    {
+      "name": "Nike ACG LDV",
+      "colorway": "Varsity Red",
+      "brand": "nike",
+      "tier": "everyday",
+      "price": 130,
+      "oldPrice": 150,
+      "currency": "EUR",
+      "sizes": [
+        {
+          "eu": 35,
+          "available": true
+        },
+        {
+          "eu": 36,
+          "available": true
+        },
+        {
+          "eu": 37,
+          "available": true
+        }
+      ],
+      "images": [
+        "/assets/products/pasted-image-1782490179181.png",
+        "/assets/products/pasted-image-1782490236646.png",
+        "/assets/products/pasted-image-1782490207722.png",
+        "/assets/products/pasted-image-1782490215116.png"
+      ],
+      "description": "Përpara se ACG të bëhej ACG, LDV arrinte majat. Fillimisht një këpucë vrapimi për distanca të gjata, LDV iu nënshtrua disa përmirësimeve të qëndrueshmërisë për ta bërë gati për në terren të vështirë. Ajo që merrni sot ende shquhet për rrjetën e frymëmarrjes dhe shputën e jashtme me ngjyrë waffle, por qëndron aty ku duhet, me ACG. Rroftë Vektori i Distancave të Gjatë.",
+      "featured": false,
+      "inStock": true,
+      "dateAdded": "2026-06-26",
+      "seoTitle": "Nike ACG LDV - Tophaxhi Store - Bli në Kosovë",
+      "seoDescription": "Nike ACG LDV - Tophaxhi Store - Bli në Kosovë",
+      "id": "nike-acg-ldv"
     }
   ]
 }

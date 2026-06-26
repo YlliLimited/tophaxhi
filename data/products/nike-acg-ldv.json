@@ -1,0 +1,35 @@
+{
+  "name": "Nike ACG LDV",
+  "colorway": "Varsity Red",
+  "brand": "nike",
+  "tier": "everyday",
+  "price": 130,
+  "oldPrice": 150,
+  "currency": "EUR",
+  "sizes": [
+    {
+      "eu": 35,
+      "available": true
+    },
+    {
+      "eu": 36,
+      "available": true
+    },
+    {
+      "eu": 37,
+      "available": true
+    }
+  ],
+  "images": [
+    "/assets/products/pasted-image-1782490179181.png",
+    "/assets/products/pasted-image-1782490236646.png",
+    "/assets/products/pasted-image-1782490207722.png",
+    "/assets/products/pasted-image-1782490215116.png"
+  ],
+  "description": "Përpara se ACG të bëhej ACG, LDV arrinte majat. Fillimisht një këpucë vrapimi për distanca të gjata, LDV iu nënshtrua disa përmirësimeve të qëndrueshmërisë për ta bërë gati për në terren të vështirë. Ajo që merrni sot ende shquhet për rrjetën e frymëmarrjes dhe shputën e jashtme me ngjyrë waffle, por qëndron aty ku duhet, me ACG. Rroftë Vektori i Distancave të Gjatë.",
+  "featured": false,
+  "inStock": true,
+  "dateAdded": "2026-06-26",
+  "seoTitle": "Nike ACG LDV - Tophaxhi Store - Bli në Kosovë",
+  "seoDescription": "Nike ACG LDV - Tophaxhi Store - Bli në Kosovë"
+}
