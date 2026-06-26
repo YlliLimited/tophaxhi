@@ -78,15 +78,26 @@
       ? '<button type="button" class="chip chip--clear" data-clear="all">Pastro të gjitha</button>' : '');
   }
 
-  function render(store) {
-    var state = getParams();
-    // sinkronizo kontrollat me URL
-    el.q.value = state.q;
-    el.brand.value = state.brand;
-    el.tier.value = state.tier;
-    el.size.value = state.size;
-    el.sort.value = state.sort;
+  // Lexon gjendjen NGA kontrollat (jo nga URL) — kjo e bën filtrimin të punojë.
+  function readControls() {
+    return {
+      q: el.q.value.trim(),
+      brand: el.brand.value,
+      tier: el.tier.value,
+      size: el.size.value,
+      sort: el.sort.value || 'new'
+    };
+  }
 
+  // Vendos kontrollat sipas URL-së (vetëm në ngarkim fillestar dhe te back/forward).
+  function syncControlsFromUrl() {
+    var s = getParams();
+    el.q.value = s.q; el.brand.value = s.brand; el.tier.value = s.tier;
+    el.size.value = s.size; el.sort.value = s.sort;
+  }
+
+  function render(store) {
+    var state = readControls();
     document.getElementById('catalogue-title').textContent = titleFor(state, store);
 
     var filtered = sortList(store.products.filter(function (p) { return matches(p, state); }), state.sort);
@@ -142,19 +153,17 @@
         return;
       }
       populateControls(store);
+      syncControlsFromUrl();   // vendos kontrollat sipas URL-së vetëm njëherë
       render(store);
       TPX.applyChrome(store);
 
-      // dëgjuesit
+      // dëgjuesit — të gjithë lexojnë drejtpërdrejt nga kontrollat
       var rerender = function () { render(store); };
       el.brand.addEventListener('change', rerender);
       el.tier.addEventListener('change', rerender);
       el.size.addEventListener('change', rerender);
       el.sort.addEventListener('change', rerender);
-      el.q.addEventListener('input', debounce(function () {
-        // përditëso URL nga inputi pa pasur nevojë të rilexojë selektet
-        var s = getParams(); s.q = el.q.value.trim(); setUrl(s); render(store);
-      }, 220));
+      el.q.addEventListener('input', debounce(rerender, 220));
 
       el.chips.addEventListener('click', function (e) {
         var btn = e.target.closest('[data-clear]'); if (!btn) return;
@@ -169,7 +178,7 @@
       });
 
       // mbështet butonat back/forward
-      window.addEventListener('popstate', function () { render(store); });
+      window.addEventListener('popstate', function () { syncControlsFromUrl(); render(store); });
     }).catch(function () {
       el.grid.hidden = true; el.error.hidden = false; el.grid.setAttribute('aria-busy', 'false');
     });

@@ -156,7 +156,9 @@ h1, h2, h3, h4 { line-height: 1.02; font-weight: 400; }
 .section--concrete { background: var(--concrete); }
 .section--ink { background: var(--ink); color: var(--white); }
 
-.display { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; line-height: 0.95; }
+/* Anton është font i lartë, "all-caps" — i jepet më shumë frymëmarrje vertikale
+   që rreshtat dhe theksat (Ë, Ç) të mos ngjeshen apo priten. */
+.display { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.08; padding-block: 0.04em; }
 .eyebrow {
   font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.14em; color: var(--top-red);
@@ -206,8 +208,9 @@ h1, h2, h3, h4 { line-height: 1.02; font-weight: 400; }
  * ------------------------------------------------------------------ */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: saturate(1.4) blur(8px);
+  background: rgba(255,255,255,0.97);
+  /* SHËNIM: mos shto backdrop-filter/transform/filter këtu — krijon "containing block"
+     dhe e bllokon menynë mobile (position:fixed) brenda header-it. */
   border-bottom: 1px solid var(--hairline);
 }
 .site-header__inner {
@@ -300,7 +303,7 @@ h1, h2, h3, h4 { line-height: 1.02; font-weight: 400; }
   display: grid; gap: 1.5rem; align-items: center;
   padding-block: clamp(2.5rem, 7vw, 5rem);
 }
-.hero__title { font-size: var(--fs-hero); }
+.hero__title { font-size: var(--fs-hero); line-height: 1.04; margin: 0.12em 0 0.22em; }
 .hero__title .accent { color: var(--top-red); }
 .hero__sub { font-size: var(--fs-lead); color: var(--ink-70); max-width: 46ch; }
 .hero__cta { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
