@@ -162,7 +162,7 @@ window.TPX = (function () {
         (flags ? '<div class="product-card__flags">' + flags + '</div>' : '') +
         '<div class="product-card__media">' +
           '<img class="product-card__img" src="' + escapeAttr(img) + '" alt="' + escapeAttr(altFor(p)) + '" ' +
-               'loading="lazy" width="800" height="1000" ' +
+               'loading="lazy" decoding="async" width="800" height="1000" ' +
                'onerror="this.onerror=null;this.src=\'assets/products/_placeholder.svg\'" />' +
         '</div>' +
         '<div class="product-card__body">' +

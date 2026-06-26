@@ -29,7 +29,7 @@
       var who = [r.name, r.city].filter(Boolean).join(' · ');
       return '<figure class="review-card">' +
         '<img class="review-card__img" src="' + TPX.util.escapeAttr(TPX.util.resolveAsset(r.image)) +
-          '" alt="Foto e klientit me atletet Tophaxhi" loading="lazy" ' +
+          '" alt="Foto e klientit me atletet Tophaxhi" loading="lazy" decoding="async" ' +
           'onerror="this.onerror=null;this.src=\'assets/products/_placeholder.svg\'" />' +
         '<figcaption class="review-card__body">' +
           '<div class="review-card__stars" aria-label="' + (r.rating || 5) + ' nga 5 yje">' + stars + '</div>' +

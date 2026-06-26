@@ -69,12 +69,12 @@
   function galleryHtml(p) {
     var imgs = p.images.map(U.resolveAsset);
     var main = '<div class="pdp__main-img"><img id="pdp-main-img" src="' + U.escapeAttr(imgs[0]) +
-      '" alt="' + U.escapeAttr(U.altFor(p)) + '" width="800" height="1000" ' +
+      '" alt="' + U.escapeAttr(U.altFor(p)) + '" width="800" height="1000" fetchpriority="high" decoding="async" ' +
       'onerror="this.onerror=null;this.src=\'assets/products/_placeholder.svg\'" /></div>';
     var thumbs = imgs.length > 1
       ? '<div class="pdp__thumbs" role="tablist">' + imgs.map(function (src, i) {
           return '<button class="pdp__thumb' + (i === 0 ? ' is-active' : '') + '" data-src="' + U.escapeAttr(src) +
-            '" aria-label="Foto ' + (i + 1) + '"><img src="' + U.escapeAttr(src) + '" alt="" loading="lazy"/></button>';
+            '" aria-label="Foto ' + (i + 1) + '"><img src="' + U.escapeAttr(src) + '" alt="" loading="lazy" decoding="async"/></button>';
         }).join('') + '</div>'
       : '';
     return '<div class="pdp__gallery">' + main + thumbs + '</div>';
