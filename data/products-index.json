@@ -38,6 +38,44 @@
       "id": "adidas-samba-og"
     },
     {
+      "name": "Air Jordan 5 Retro OG \"White Metallic\"",
+      "colorway": "White",
+      "brand": "jordan",
+      "tier": "mainstream",
+      "price": 215,
+      "oldPrice": 250,
+      "currency": "EUR",
+      "sizes": [
+        {
+          "eu": 46,
+          "available": true
+        },
+        {
+          "eu": 47,
+          "available": true
+        },
+        {
+          "eu": 48,
+          "available": true
+        }
+      ],
+      "images": [
+        "/assets/products/pasted-image-1782490410455.png",
+        "/assets/products/pasted-image-1782490416145.png",
+        "/assets/products/pasted-image-1782490425008.png",
+        "/assets/products/pasted-image-1782490432569.png",
+        "/assets/products/pasted-image-1782490439484.png",
+        "/assets/products/pasted-image-1782490447379.png"
+      ],
+      "description": "Merrni pjesën tuaj të historisë së Jordanit me Air Jordan 5 Retro. Bazuar në këpucën klasike të lojërave të vitit 1990, ajo ka të gjitha detajet ikonike si jaka e fryrë, këmbana me dantella dhe linjat e dizajnit të frymëzuara nga aeroplanët luftarakë. Pjesa e sipërme e bardhë e pastër është e balancuar me detaje argjendi metalik dhe një shputë të tejdukshme, më pas e theksuar me markën Nike Air në thembër për të kompletuar pamjen klasike.",
+      "featured": false,
+      "inStock": true,
+      "dateAdded": "2026-06-26",
+      "seoTitle": "Air Jordan 5 Retro OG \"White Metallic\" - Tophaxhi Sneakers - Bli në Kosovë",
+      "seoDescription": "Air Jordan 5 Retro OG \"White Metallic\" - Tophaxhi Sneakers - Bli në Kosovë",
+      "id": "air-jordan-5-retro-og-white-metallic"
+    },
+    {
       "name": "Nike ACG LDV",
       "colorway": "Varsity Red",
       "brand": "nike",
