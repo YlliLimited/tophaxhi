@@ -51,6 +51,37 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
+  /* ---------- Kërkimi në navbar (dërgon te atletet.html?q=) ---------- */
+  function initSearch() {
+    var SEARCH_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>';
+    var current = '';
+    try { current = new URLSearchParams(location.search).get('q') || ''; } catch (e) {}
+
+    function makeForm(cls) {
+      var f = document.createElement('form');
+      f.className = cls; f.setAttribute('role', 'search'); f.setAttribute('aria-label', 'Kërko atlete');
+      f.innerHTML = SEARCH_ICON +
+        '<input type="search" name="q" placeholder="Kërko atlete…" aria-label="Kërko atlete" autocomplete="off" />';
+      var input = f.querySelector('input');
+      if (current && /atletet/.test(location.pathname)) input.value = current;
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var v = input.value.trim();
+        window.location.href = 'atletet.html' + (v ? ('?q=' + encodeURIComponent(v)) : '');
+      });
+      return f;
+    }
+
+    var actions = document.querySelector('.site-header__inner .header-actions');
+    if (actions && !actions.querySelector('.nav-search')) {
+      actions.insertBefore(makeForm('nav-search'), actions.firstChild);
+    }
+    var drawer = document.getElementById('mobile-nav');
+    if (drawer && !drawer.querySelector('.drawer-search')) {
+      drawer.insertBefore(makeForm('drawer-search'), drawer.firstChild);
+    }
+  }
+
   /* ---------- Viti aktual në footer ---------- */
   function initYear() {
     var y = String(new Date().getFullYear());
@@ -96,6 +127,7 @@
 
   /* ---------- Init ---------- */
   function init() {
+    try { initSearch(); } catch (e) {}
     try { initNav(); } catch (e) { /* mos lejo që dështimi të bllokojë faqen */ }
     try { initReveal(); } catch (e) {}
     try { initYear(); } catch (e) {}

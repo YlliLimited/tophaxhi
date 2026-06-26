@@ -99,6 +99,21 @@
   --shadow-md: 0 6px 18px rgba(10,10,10,0.10);
   --shadow-lg: 0 18px 50px rgba(10,10,10,0.16);
 
+  /* ---- GLASS (glassmorphism) ---- */
+  --glass:        rgba(255,255,255,0.42);   /* xham i lehtë */
+  --glass-2:      rgba(255,255,255,0.60);   /* mesatar */
+  --glass-strong: rgba(255,255,255,0.80);   /* për tekst të lexueshëm */
+  --glass-edge:   rgba(255,255,255,0.70);   /* buzë e ndritshme (highlight) */
+  --glass-line:   rgba(31,31,31,0.08);
+  --glass-dark:   rgba(31,31,31,0.55);      /* xham mbi sfond të errët */
+  --glass-dark-2: rgba(31,31,31,0.72);
+  --glass-dark-edge: rgba(255,255,255,0.14);
+  --blur:    saturate(1.7) blur(14px);
+  --blur-lg: saturate(1.8) blur(24px);
+  --blur-sm: saturate(1.6) blur(8px);
+  --glass-shadow:    0 8px 30px rgba(31,31,31,0.12), inset 0 1px 0 rgba(255,255,255,0.55);
+  --glass-shadow-lg: 0 20px 54px rgba(31,31,31,0.18), inset 0 1px 0 rgba(255,255,255,0.6);
+
   /* Lëvizja */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --t-fast: 140ms;
@@ -120,7 +135,13 @@ body {
   font-size: var(--fs-body);
   line-height: 1.55;
   color: var(--ink);
-  background: var(--white);
+  /* Sfond ambiental — gradient kremë me shkëlqime të kuqe të lehta, që xhami të ketë çfarë të thyejë */
+  background:
+    radial-gradient(42% 38% at 10% 6%, rgba(154,0,2,0.13), transparent 70%),
+    radial-gradient(46% 42% at 94% 26%, rgba(154,0,2,0.10), transparent 72%),
+    radial-gradient(52% 48% at 72% 100%, rgba(154,0,2,0.09), transparent 72%),
+    linear-gradient(160deg, #f7f2ec 0%, #efe6dd 52%, #e7ddd1 100%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -677,6 +698,173 @@ body.has-sticky-bar { padding-bottom: 76px; }
 
 .error-hero { text-align: center; padding-block: clamp(3rem, 12vw, 7rem); }
 .error-hero .code { font-family: var(--font-display); font-size: clamp(5rem, 22vw, 11rem); color: var(--top-red); line-height: 0.9; }
+
+/* ==================================================================== *
+ * 15z. GLASS THEME (glassmorphism) — shtresë override mbi komponentët
+ *  - Blur i vërtetë vetëm te "chrome"-i & overlay-t (pak instanca).
+ *  - Kartat e produkteve janë gjysmë-transparente PA blur (performancë në lista të gjata).
+ *  - Header-i merr blur përmes ::before që menyja mobile (fixed) të mos bllokohet.
+ * ==================================================================== */
+
+/* Seksionet — kryesisht transparente që sfondi ambiental të duket */
+.hero { background: transparent; }
+.section--concrete {
+  background: rgba(255,255,255,0.28);
+  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
+  border-block: 1px solid var(--glass-edge);
+}
+.section--ink { background: var(--glass-dark-2); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); }
+
+/* Header */
+.site-header { background: transparent; border-bottom: 0; }
+.site-header::before {
+  content: ""; position: absolute; inset: 0;
+  background: var(--glass-2);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  border-bottom: 1px solid var(--glass-edge);
+}
+.site-header__inner { position: relative; z-index: 1; }
+
+/* Menyja mobile — xham i fortë (i lexueshëm) */
+.mobile-nav {
+  background: rgba(247,242,236,0.82);
+  -webkit-backdrop-filter: var(--blur-lg); backdrop-filter: var(--blur-lg);
+}
+
+/* Kërkimi në navbar (injektohet nga main.js) */
+.nav-search { display: none; }
+@media (min-width: 880px) {
+  .nav-search {
+    display: flex; align-items: center; gap: 0.45rem;
+    background: rgba(255,255,255,0.55); border: 1px solid var(--glass-edge);
+    -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
+    border-radius: 999px; padding: 0.42rem 0.9rem; width: 190px;
+    transition: width var(--t-med) var(--ease), background var(--t-fast) var(--ease);
+  }
+  .nav-search:focus-within { width: 250px; background: rgba(255,255,255,0.88); }
+  .nav-search svg { width: 16px; height: 16px; color: var(--ink-40); flex: none; }
+  .nav-search input { border: none; background: none; outline: none; width: 100%; font-size: var(--fs-sm); color: var(--ink); }
+}
+.drawer-search {
+  display: flex; align-items: center; gap: 0.5rem;
+  background: rgba(255,255,255,0.62); border: 1px solid var(--glass-edge);
+  border-radius: 12px; padding: 0.6rem 0.9rem; margin-bottom: 0.9rem;
+}
+.drawer-search svg { width: 18px; height: 18px; color: var(--ink-40); flex: none; }
+.drawer-search input { border: none; background: none; outline: none; width: 100%; font-size: 1rem; color: var(--ink); }
+
+/* Trust bar — xham i errët */
+.trust-bar {
+  background: var(--glass-dark-2);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  border-bottom: 1px solid var(--glass-dark-edge);
+}
+
+/* Butonat — sheen xhami; primari mbetet i lexueshëm */
+.btn { box-shadow: var(--glass-shadow); }
+.btn--red {
+  background-image: linear-gradient(rgba(255,255,255,0.16), rgba(255,255,255,0) 60%);
+  border-color: rgba(255,255,255,0.28);
+}
+.btn--ghost {
+  --btn-bg: var(--glass-2); --btn-fg: var(--ink); --btn-bd: var(--glass-edge);
+  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
+}
+.btn--ghost:hover { --btn-bg: rgba(31,31,31,0.88); --btn-fg: #fff; }
+.btn--light { --btn-bg: rgba(255,255,255,0.78); --btn-bd: var(--glass-edge); -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm); }
+.btn--wa { background-image: linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0)); border-color: rgba(255,255,255,0.3); }
+.btn--ig { --btn-bg: rgba(255,255,255,0.72); --btn-bd: var(--glass-edge); -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm); }
+.btn--viber { --btn-bg: #7360f2; --btn-fg: #fff; --btn-bd: #7360f2; background-image: linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0)); }
+
+/* Kartat e produkteve — transparente + buzë xhami, PA blur (performancë) */
+.product-card {
+  background: rgba(255,255,255,0.50);
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shadow);
+}
+.product-card__media { background: rgba(255,255,255,0.42); border-bottom: 1px solid var(--glass-line); }
+@media (hover: hover) { .product-card:hover { box-shadow: var(--glass-shadow-lg); border-color: rgba(255,255,255,0.85); } }
+
+/* Chip-et e markave */
+.brand-chip {
+  background: rgba(255,255,255,0.45);
+  border: 1px solid var(--glass-edge);
+  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
+}
+.brand-chip:hover { background: rgba(255,255,255,0.7); }
+
+/* Filtrat */
+.filters__search, .field select {
+  background-color: rgba(255,255,255,0.55);
+  border-color: var(--glass-edge);
+  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
+}
+.chip { background: rgba(255,255,255,0.5); border-color: var(--glass-edge); -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm); }
+
+/* Hapat / steps, reviews, contact */
+.step, .review-card, .contact-card {
+  background: rgba(255,255,255,0.5);
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
+}
+.review-card__img { background: rgba(255,255,255,0.4); }
+
+/* Trust-block i errët — xham i errët */
+.trust-block {
+  background: var(--glass-dark-2);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-dark-edge);
+  box-shadow: var(--glass-shadow-lg);
+}
+
+/* PDP */
+.pdp__main-img { background: rgba(255,255,255,0.5); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
+.pdp__thumb { background: rgba(255,255,255,0.5); border-color: var(--glass-edge); }
+.pdp__assurance {
+  background: rgba(255,255,255,0.45);
+  border: 1px solid var(--glass-edge);
+  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
+}
+.size-btn { background: rgba(255,255,255,0.5); border-color: var(--glass-edge); }
+
+/* Faqet info — page hero (errët) si xham i errët */
+.page-hero {
+  background: var(--glass-dark-2);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  border-bottom: 1px solid var(--glass-dark-edge);
+}
+
+/* Sticky bar + sheet + toast — xham */
+.sticky-bar {
+  background: rgba(255,255,255,0.72);
+  -webkit-backdrop-filter: var(--blur-lg); backdrop-filter: var(--blur-lg);
+  border-top: 1px solid var(--glass-edge);
+}
+.sheet {
+  background: rgba(247,242,236,0.82);
+  -webkit-backdrop-filter: var(--blur-lg); backdrop-filter: var(--blur-lg);
+  box-shadow: var(--glass-shadow-lg);
+}
+.toast {
+  background: var(--glass-dark-2);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-dark-edge);
+}
+
+/* State / skeleton */
+.state { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm); }
+
+/* Footer (mbi të kuqe) — panele xhami të lehta */
+.footer-col { }
+
+/* Fallback: nëse backdrop-filter s'mbështetet, përdor sfond më të errët/opak */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header::before { background: rgba(255,255,255,0.96); }
+  .mobile-nav { background: #f4efe8; }
+  .trust-bar, .section--ink, .page-hero, .trust-block, .toast { background: var(--ink); }
+  .product-card, .step, .review-card, .contact-card, .brand-chip { background: #fff; }
+}
 
 /* ------------------------------------------------------------------ *
  * 16. ANIMACIONE (scroll reveal + load reveal) — me reduced-motion fallback

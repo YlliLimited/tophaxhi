@@ -9,9 +9,11 @@
     "instagramUrl": "https://instagram.com/tophaxhi",
     "whatsappNumber": "383XXXXXXXX",
     "whatsappDisplay": "+383 XX XXX XXX",
+    "viberNumber": "383XXXXXXXX",
+    "viberDisplay": "+383 XX XXX XXX",
     "email": "",
     "location": "Kosovë",
-    "_todo": "TODO (pronari): vendos handle-in real të IG, numrin e WhatsApp (format ndërkombëtar pa '+' dhe pa hapësira, p.sh. 38344123456), email-in dhe lokacionin."
+    "_todo": "TODO (pronari): vendos handle-in real të IG, numrin e WhatsApp dhe Viber (format ndërkombëtar pa '+' dhe pa hapësira, p.sh. 38344123456), email-in dhe lokacionin."
   },
 
   "hero": {

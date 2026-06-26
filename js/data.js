@@ -196,6 +196,11 @@ window.TPX = (function () {
     var handle = (store.settings.contact && store.settings.contact.instagramHandle) || 'tophaxhi';
     return 'https://ig.me/m/' + encodeURIComponent(handle);
   }
+  function viberLink(store) {
+    var c = store.settings.contact || {};
+    var num = String(c.viberNumber || c.whatsappNumber || '').replace(/[^\d]/g, '');
+    return 'viber://chat?number=' + encodeURIComponent('+' + num);
+  }
 
   /* ---------------- Sinkronizo "chrome"-in (footer/links) nga settings ---------------- */
   function applyChrome(store) {
@@ -203,15 +208,37 @@ window.TPX = (function () {
       var c = store.settings.contact || {};
       var igUrl = c.instagramUrl || ('https://instagram.com/' + (c.instagramHandle || 'tophaxhi'));
       var igHandle = '@' + (c.instagramHandle || 'tophaxhi');
-      var waNum = c.whatsappNumber || '';
+      var waNum = String(c.whatsappNumber || '').replace(/[^\d]/g, '');
       var waDisplay = c.whatsappDisplay || '';
-      document.querySelectorAll('a[href*="instagram.com"]').forEach(function (a) {
+      var viberNum = String(c.viberNumber || c.whatsappNumber || '').replace(/[^\d]/g, '');
+      var viberHref = 'viber://chat?number=' + encodeURIComponent('+' + viberNum);
+      var viberDisplay = c.viberDisplay || c.whatsappDisplay || '';
+
+      document.querySelectorAll('a[href*="instagram.com"], a[href^="https://ig.me"]').forEach(function (a) {
         a.href = igUrl;
         if (/Instagram\s*·/.test(a.textContent)) a.textContent = 'Instagram · ' + igHandle;
       });
       document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
         a.href = 'https://wa.me/' + waNum;
         if (/WhatsApp\s*·/.test(a.textContent) && waDisplay) a.textContent = 'WhatsApp · ' + waDisplay;
+      });
+      document.querySelectorAll('a[href^="viber:"]').forEach(function (a) {
+        a.href = viberHref;
+        if (/Viber\s*·/.test(a.textContent) && viberDisplay) a.textContent = 'Viber · ' + viberDisplay;
+      });
+
+      // Injekto linkun e Viber-it në footer (pas WhatsApp-it) nëse mungon
+      document.querySelectorAll('.footer-col ul').forEach(function (ul) {
+        var wa = ul.querySelector('a[href*="wa.me"]');
+        if (wa && !ul.querySelector('a[href^="viber:"]')) {
+          var waLi = wa.closest('li');
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = viberHref; a.target = '_blank'; a.rel = 'noopener';
+          a.textContent = 'Viber · ' + viberDisplay;
+          li.appendChild(a);
+          if (waLi && waLi.parentNode) waLi.parentNode.insertBefore(li, waLi.nextSibling);
+        }
       });
     } catch (e) { /* mos e prish faqen */ }
   }
@@ -227,6 +254,6 @@ window.TPX = (function () {
     },
     query: { getById: getById, getFeatured: getFeatured, getRelated: getRelated, brandName: brandName },
     render: { productCard: productCardHtml },
-    order: { message: orderMessage, whatsappLink: whatsappLink, instagramDmLink: instagramDmLink }
+    order: { message: orderMessage, whatsappLink: whatsappLink, instagramDmLink: instagramDmLink, viberLink: viberLink }
   };
 })();

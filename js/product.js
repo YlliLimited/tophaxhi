@@ -107,8 +107,8 @@
         iconWa() + ' Porosit në WhatsApp</button>' +
       '<button type="button" class="btn btn--ig btn--block" data-channel="instagram">' +
         iconIg() + ' Porosit në Instagram</button>' +
-      '<button type="button" class="btn btn--ghost btn--block" data-channel="form">' +
-        'Porosit në faqe (formë)</button>' +
+      '<button type="button" class="btn btn--viber btn--block" data-channel="viber">' +
+        iconViber() + ' Porosit në Viber</button>' +
       '</div>';
   }
 
@@ -167,8 +167,11 @@
         if (window.Toast) Toast.show('Mesazhi u kopjua — ngjite në DM.');
       });
       window.open(TPX.order.instagramDmLink(store), '_blank', 'noopener');
-    } else if (channel === 'form') {
-      location.href = 'porosia.html?id=' + encodeURIComponent(p.id) + '&size=' + encodeURIComponent(state.size);
+    } else if (channel === 'viber') {
+      copyToClipboard(msg).then(function () {
+        if (window.Toast) Toast.show('Mesazhi u kopjua — ngjite në Viber.');
+      });
+      window.open(TPX.order.viberLink(store), '_blank', 'noopener');
     }
     closeSheet();
   }
@@ -181,7 +184,7 @@
     actions.innerHTML =
       '<button type="button" class="btn btn--wa btn--block" data-channel="whatsapp">' + iconWa() + ' WhatsApp</button>' +
       '<button type="button" class="btn btn--ig btn--block" data-channel="instagram">' + iconIg() + ' Instagram</button>' +
-      '<button type="button" class="btn btn--ghost btn--block" data-channel="form">Formë në faqe</button>';
+      '<button type="button" class="btn btn--viber btn--block" data-channel="viber">' + iconViber() + ' Viber</button>';
     actions.querySelectorAll('[data-channel]').forEach(function (b) {
       b.addEventListener('click', function () { doChannel(b.getAttribute('data-channel')); });
     });
@@ -277,6 +280,7 @@
   /* ---------- Ikona inline ---------- */
   function iconWa() { return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.8-.2-.3A8 8 0 1112 20zm4.6-5.9c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1-.8-.4-1.6-.8-2.3-1.8-.2-.3.2-.3.5-.9.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 2s.8 2.3.9 2.4c.1.2 1.6 2.5 4 3.4 1.4.6 2 .6 2.7.5.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.1-.4-.2z"/></svg>'; }
   function iconIg() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>'; }
+  function iconViber() { return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M12 2C7 2 3 5.4 3 9.7c0 2 .9 3.8 2.4 5.2-.1 1.2-.5 2.6-1.4 3.6 1.6-.2 2.9-.8 3.9-1.5 1.2.5 2.6.8 4.1.8 5 0 9-3.4 9-7.7S17 2 12 2zm0 13.7c-1.3 0-2.5-.2-3.6-.7l-.4-.2-1.4.5.3-1.3-.3-.3C5.7 12.4 5 11.1 5 9.7 5 6.6 8.1 4 12 4s7 2.6 7 5.7-3.1 6-7 6zm3.7-4.3c-.2-.1-1.2-.6-1.4-.6-.2-.1-.3-.1-.5.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.6-.3-1.3-.6-1.8-1.4-.1-.2 0-.3.1-.4l.3-.4c.1-.1.1-.2 0-.4l-.6-1.3c-.1-.3-.3-.3-.4-.3h-.4c-.1 0-.3 0-.5.2-.2.2-.6.6-.6 1.4s.6 1.6.7 1.7c.1.1 1.2 1.9 3 2.6 1.1.4 1.5.4 2 .3.3 0 1-.4 1.2-.9.1-.4.1-.8.1-.9-.1-.1-.2-.1-.4-.2z"/></svg>'; }
   function iconCheck() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>'; }
   function iconCash() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>'; }
   function iconTruck() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17.5" cy="17" r="1.6"/></svg>'; }
