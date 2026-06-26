@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Title/description/canonical/OG plotësohen nga product.js sipas produktit -->
+  <title>Atlete origjinale | Tophaxhi Sneakers</title>
+  <meta name="description" content="Atlete origjinale në Kosovë me pagesë në dorë. Tophaxhi Sneakers." />
+  <meta name="theme-color" content="#9a0002" />
+  <link rel="canonical" href="https://tophaxhi.com/atletet.html" id="pdp-canonical" />
+  <link rel="icon" href="assets/brand/mark.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch.png" />
+  <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="Tophaxhi Sneakers" />
+  <meta property="og:locale" content="sq_AL" />
+  <link rel="preload" href="assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sticky-bar">
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand-lockup" aria-label="Tophaxhi Sneakers — ballina">
+        <img class="brand-lockup__mark" src="assets/brand/mark.png" alt="" width="38" height="38" />
+        <span class="brand-lockup__text">
+          <span class="brand-lockup__top">Tophaxhi</span>
+          <span class="brand-lockup__sub">Sneakers</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navigimi kryesor">
+        <ul>
+          <li><a href="atletet.html">Atletet</a></li>
+          <li><a href="atletet.html?tier=hype">Hype</a></li>
+          <li><a href="si-te-porosisesh.html">Si të porosisësh</a></li>
+          <li><a href="rreth-nesh.html">Rreth nesh</a></li>
+          <li><a href="kontakti.html">Kontakti</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="atletet.html" class="btn btn--red" data-desktop-cta>Shfleto atletet</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Hap menynë"><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Menyja mobile">
+      <a href="atletet.html">Atletet</a>
+      <a href="atletet.html?tier=hype">Hype</a>
+      <a href="si-te-porosisesh.html">Si të porosisësh</a>
+      <a href="rreth-nesh.html">Rreth nesh</a>
+      <a href="dergesa-kthimet.html">Dërgesa &amp; Kthimet</a>
+      <a href="kontakti.html">Kontakti</a>
+    </nav>
+  </header>
+
+  <div class="trust-bar">
+    <div class="container trust-bar__track">
+      <span class="trust-bar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg><strong>Pagesa në dorë</strong></span>
+      <span class="trust-bar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><strong>Origjinale 100%</strong></span>
+      <span class="trust-bar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17.5" cy="17" r="1.6"/></svg><strong>Dërgesa në tërë Kosovën</strong></span>
+    </div>
+  </div>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" id="pdp-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Ballina</a> <span aria-hidden="true">/</span>
+        <a href="atletet.html">Atletet</a>
+      </nav>
+
+      <!-- PDP (mbushet nga product.js) -->
+      <article class="pdp" id="pdp" aria-busy="true">
+        <div class="pdp__gallery skeleton" style="aspect-ratio:4/5;border-radius:var(--radius)"></div>
+        <div class="pdp__info"><p class="muted">Po ngarkohet…</p></div>
+      </article>
+
+      <!-- Nuk u gjet -->
+      <div class="state" id="pdp-notfound" hidden>
+        <p class="display">Produkti nuk u gjet</p>
+        <p>Mund të jetë shitur ose linku është i pasaktë.</p>
+        <a href="atletet.html" class="btn btn--red" style="margin-top:1rem">Shiko të gjitha atletet</a>
+      </div>
+    </div>
+
+    <!-- Të ngjashme -->
+    <section class="section" id="related-section" hidden>
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">Të ngjashme</p><h2 class="display" id="related-title">Më shumë atlete</h2></div>
+        <div class="product-grid" id="related-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky order bar (mobile) -->
+  <div class="sticky-bar" id="sticky-bar" hidden>
+    <div class="sticky-bar__price">
+      <span class="sticky-bar__amount" id="sticky-price"></span>
+      <span class="sticky-bar__name" id="sticky-name"></span>
+    </div>
+    <button class="btn btn--red" id="sticky-order">Porosit</button>
+  </div>
+
+  <!-- Bottom sheet: tri kanalet -->
+  <div class="sheet-backdrop" id="order-sheet" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+      <div class="sheet__handle" aria-hidden="true"></div>
+      <h2 class="sheet__title" id="sheet-title">Si dëshiron të porosisësh?</h2>
+      <p class="sheet__sub" id="sheet-sub"></p>
+      <div class="sheet__actions" id="sheet-actions"><!-- butonat e kanaleve --></div>
+      <button class="sheet__close" id="sheet-close" aria-label="Mbyll">Mbyll</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container site-footer__top">
+      <div>
+        <div class="footer-lockup">
+          <div class="footer-lockup__top">Top<br/>Haxhi</div>
+          <div class="footer-lockup__sub">Sneakers</div>
+        </div>
+        <p class="footer-signoff">Rri top.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Faqet</h3>
+        <ul>
+          <li><a href="atletet.html">Atletet</a></li>
+          <li><a href="si-te-porosisesh.html">Si të porosisësh</a></li>
+          <li><a href="rreth-nesh.html">Rreth nesh</a></li>
+          <li><a href="dergesa-kthimet.html">Dërgesa &amp; Kthimet</a></li>
+          <li><a href="kontakti.html">Kontakti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Na shkruaj</h3>
+        <ul>
+          <li><a href="https://instagram.com/tophaxhi" target="_blank" rel="noopener">Instagram · @tophaxhi</a></li>
+          <li><a href="https://wa.me/383XXXXXXXX" target="_blank" rel="noopener">WhatsApp · +383 XX XXX XXX</a></li>
+          <li><span style="color:rgba(244,241,234,.8)">Kosovë · Pagesa në dorë</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <span>© <span data-year>2026</span> Tophaxhi Sneakers. Të gjitha të drejtat e rezervuara.</span>
+      <span>Atlete origjinale · Kosovë</span>
+    </div>
+  </footer>
+
+  <div class="toast-wrap" id="toast-wrap" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- JSON-LD Product injektohet nga product.js -->
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/product.js" defer></script>
+</body>
+</html>

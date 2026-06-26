@@ -1,0 +1,23 @@
+<svg viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Foto e produktit së shpejti">
+  <!-- PLACEHOLDER PRODUKTI — kornizë 4:5 në të bardhë. TODO (pronari): ngarko foton reale të atletes. -->
+  <rect width="800" height="1000" fill="#FFFFFF"/>
+  <g transform="translate(400 460)" fill="none" stroke="rgba(10,10,10,0.22)" stroke-width="14"
+     stroke-linejoin="round" stroke-linecap="round">
+    <path d="M-235 70
+      C -205 30, -120 30, -78 56
+      L -10 96
+      C 18 50, 92 30, 132 70
+      C 156 36, 214 38, 224 84
+      C 256 90, 300 104, 322 130
+      C 340 152, 332 182, 296 184
+      L -228 184
+      C -262 184, -270 130, -235 70 Z"/>
+    <path d="M-10 96 L 26 150"/>
+    <path d="M44 78 L 78 138"/>
+    <path d="M96 66 L 126 128"/>
+    <path d="M-262 150 L 300 150"/>
+  </g>
+  <text x="400" y="700" text-anchor="middle"
+        font-family="'Anton','Arial Narrow',sans-serif" font-size="46"
+        letter-spacing="3" fill="rgba(10,10,10,0.35)">FOTO SË SHPEJTI</text>
+</svg>

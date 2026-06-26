@@ -1,0 +1,218 @@
+# =====================================================================
+# Tophaxhi Sneakers — Konfigurimi i Sveltia CMS
+# Çdo ndryshim këtu commit-ohet drejtpërdrejt në repo dhe GitHub Pages
+# e ribotojnë faqen automatikisht. Etiketat dhe ndihmat janë në shqip.
+# =====================================================================
+
+backend:
+  name: github
+  repo: PRONARI/tophaxhi          # TODO: zëvendëso me "përdoruesi-yt/emri-i-repo"
+  branch: main
+  # TODO: vendos URL-në e Cloudflare Worker-it për hyrjen (shih README → Admin).
+  base_url: https://OAUTH-WORKER.tophaxhi.workers.dev
+  commit_messages:
+    create: "Shto {{collection}} “{{slug}}” (nga CMS)"
+    update: "Përditëso {{collection}} “{{slug}}” (nga CMS)"
+    delete: "Fshi {{collection}} “{{slug}}” (nga CMS)"
+    uploadMedia: "Ngarko foto “{{path}}” (nga CMS)"
+    deleteMedia: "Fshi foto “{{path}}” (nga CMS)"
+
+# Ku ruhen fotot e ngarkuara
+media_folder: "assets/products"
+public_folder: "/assets/products"
+
+# Identiteti i panelit
+site_url: https://tophaxhi.com
+display_url: https://tophaxhi.com
+logo_url: /assets/brand/mark.png
+
+collections:
+  # -------------------------------------------------------------------
+  # ATLETET — një skedar për çdo produkt te /data/products
+  # -------------------------------------------------------------------
+  - name: products
+    label: "Atletet"
+    label_singular: "Atlete"
+    description: "Shto, ndrysho ose hiq atlete. Emri i skedarit krijohet vetë nga emri i modelit."
+    folder: "data/products"
+    create: true
+    delete: true
+    format: json
+    extension: json
+    identifier_field: name
+    slug: "{{slug}}"
+    summary: "{{name}} — {{colorway}} ({{price}}€)"
+    sortable_fields: [name, price, dateAdded]
+    fields:
+      - { name: name, label: "Emri i modelit", widget: string, hint: "p.sh. Adidas Campus 00s. Mbaje unik për çdo model." }
+      - { name: colorway, label: "Ngjyra (colorway)", widget: string, required: false, hint: "p.sh. Core Black / White" }
+      - name: brand
+        label: "Marka"
+        widget: select
+        options:
+          - { label: "Nike", value: "nike" }
+          - { label: "Adidas", value: "adidas" }
+          - { label: "Jordan", value: "jordan" }
+          - { label: "New Balance", value: "new-balance" }
+          - { label: "Puma", value: "puma" }
+        hint: "Nëse të mungon një markë, shtoje te 'Konfigurimet → Markat' dhe pastaj këtu."
+      - name: tier
+        label: "Tieri"
+        widget: select
+        default: "mainstream"
+        options:
+          - { label: "Të përditshme", value: "everyday" }
+          - { label: "Mainstream", value: "mainstream" }
+          - { label: "Hype", value: "hype" }
+      - { name: price, label: "Çmimi (€)", widget: number, value_type: int, min: 0, hint: "Çmimi në euro, vetëm numri — p.sh. 120" }
+      - { name: oldPrice, label: "Çmimi i vjetër (€)", widget: number, value_type: int, required: false, hint: "Plotëso vetëm nëse ka ulje (do të shfaqet i kryqëzuar). Përndryshe lëre bosh." }
+      - { name: currency, label: "Valuta", widget: hidden, default: "EUR" }
+      - name: sizes
+        label: "Madhësitë (EU)"
+        label_singular: "Madhësi"
+        widget: list
+        summary: "EU {{fields.eu}}"
+        hint: "Shto çdo madhësi EU dhe shëno nëse është në dispozicion."
+        fields:
+          - { name: eu, label: "Numri EU", widget: number, value_type: int }
+          - { name: available, label: "Në dispozicion?", widget: boolean, default: true }
+      - name: images
+        label: "Fotot e produktit"
+        label_singular: "Foto"
+        widget: list
+        field: { name: image, label: "Foto", widget: image }
+        hint: "Ngarko foto 4:5 (portret), p.sh. 1000×1250px. Sfond i bardhë duket më premium. Foto e parë është kryesorja."
+      - { name: description, label: "Përshkrimi", widget: text, required: false, hint: "Përshkrim i shkurtër në shqip." }
+      - { name: featured, label: "Bomba e javës?", widget: boolean, default: false, hint: "Aktivizo për ta shfaqur me distinktiv 'Bomba e javës'." }
+      - { name: inStock, label: "Në stok?", widget: boolean, default: true }
+      - { name: dateAdded, label: "Data e shtimit", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, default: "", hint: "Përdoret për renditjen 'Më të rejat'." }
+      - { name: seoTitle, label: "Titulli SEO", widget: string, required: false, hint: "Opsionale. P.sh. 'Adidas Campus 00s Black — Bli në Kosovë | Tophaxhi'" }
+      - { name: seoDescription, label: "Përshkrimi SEO", widget: text, required: false, hint: "Opsionale. 1–2 fjali për Google dhe ndarje në DM." }
+
+  # -------------------------------------------------------------------
+  # VLERËSIMET — social proof, një skedar për çdo vlerësim
+  # -------------------------------------------------------------------
+  - name: reviews
+    label: "Vlerësimet"
+    label_singular: "Vlerësim"
+    description: "Foto 'Tophaxhi on feet' dhe fjalë nga klientët."
+    folder: "data/reviews"
+    create: true
+    delete: true
+    format: json
+    extension: json
+    identifier_field: name
+    slug: "review-{{slug}}-{{year}}{{month}}{{day}}{{hour}}{{minute}}"
+    summary: "{{name}} ({{city}}) — {{rating}}★"
+    fields:
+      - { name: name, label: "Emri i klientit", widget: string, required: false }
+      - { name: city, label: "Qyteti", widget: string, required: false, hint: "p.sh. Prishtinë" }
+      - { name: rating, label: "Yjet (1–5)", widget: number, value_type: int, min: 1, max: 5, default: 5 }
+      - { name: text, label: "Teksti i vlerësimit", widget: text, required: false }
+      - { name: image, label: "Foto (opsionale)", widget: image, required: false, hint: "Screenshot ose foto e klientit me atletet." }
+      - { name: order, label: "Renditja", widget: number, value_type: int, required: false, hint: "Numra më të vegjël shfaqen të parët." }
+
+  # -------------------------------------------------------------------
+  # KONFIGURIMET — skedarë të vetëm (settings + brands)
+  # -------------------------------------------------------------------
+  - name: config
+    label: "Konfigurimet"
+    description: "Të dhënat e faqes, kontaktet dhe markat."
+    editor: { preview: false }
+    files:
+      - name: settings
+        label: "Faqja & Kontaktet"
+        file: "data/settings.json"
+        fields:
+          - { name: siteUrl, label: "URL e faqes", widget: string, hint: "p.sh. https://tophaxhi.com" }
+          - { name: brandName, label: "Emri i brendit", widget: string }
+          - { name: signoff, label: "Nënshkrimi", widget: string, default: "Rri top.", hint: "Shfaqet në footer dhe konfirmime." }
+          - { name: tagline, label: "Slogani", widget: string, required: false }
+          - name: contact
+            label: "Kontaktet"
+            widget: object
+            fields:
+              - { name: instagramHandle, label: "Instagram (pa @)", widget: string, hint: "p.sh. tophaxhi" }
+              - { name: instagramUrl, label: "Link Instagram", widget: string, required: false }
+              - { name: whatsappNumber, label: "Numri WhatsApp (ndërkombëtar, pa +)", widget: string, hint: "p.sh. 38344123456 — kjo me 0 në fillim, pa hapësira." }
+              - { name: whatsappDisplay, label: "WhatsApp për shfaqje", widget: string, required: false, hint: "Si duket numri te faqja, p.sh. +383 44 123 456" }
+              - { name: email, label: "Email", widget: string, required: false }
+              - { name: location, label: "Lokacioni", widget: string, required: false, default: "Kosovë" }
+          - name: hero
+            label: "Hero (kreu i ballinës)"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Mbi-titull", widget: string, required: false }
+              - { name: titleLine1, label: "Titulli — rreshti 1", widget: string }
+              - { name: titleLine2, label: "Titulli — rreshti 2", widget: string }
+              - { name: subtitle, label: "Nën-titull", widget: text, required: false }
+              - { name: ctaPrimary, label: "Butoni kryesor", widget: string, default: "Shfleto atletet" }
+              - { name: ctaSecondary, label: "Butoni dytësor", widget: string, required: false }
+          - name: trustPromises
+            label: "Premtimet (trust bar)"
+            widget: list
+            collapsed: true
+            summary: "{{fields.text}}"
+            fields:
+              - name: icon
+                label: "Ikona"
+                widget: select
+                options: ["cash", "shield", "truck", "check"]
+              - { name: text, label: "Teksti", widget: string }
+              - { name: enabled, label: "Aktive?", widget: boolean, default: true }
+          - name: featuredIds
+            label: "Bomba e javës (produktet)"
+            widget: relation
+            collection: products
+            value_field: "{{slug}}"
+            search_fields: ["name"]
+            display_fields: ["name"]
+            multiple: true
+            required: false
+            hint: "Zgjedh produktet që dëshiron të theksohen si 'Bomba e javës'."
+          - name: order
+            label: "Porosia"
+            widget: object
+            collapsed: true
+            fields:
+              - name: method
+                label: "Mënyra e dorëzimit të formës"
+                widget: select
+                default: "whatsapp"
+                options:
+                  - { label: "WhatsApp (pa backend, e rekomanduar)", value: "whatsapp" }
+                  - { label: "Formspree (email)", value: "formspree" }
+              - { name: formspreeEndpoint, label: "Formspree endpoint", widget: string, required: false, hint: "Vetëm nëse zgjedh Formspree. p.sh. https://formspree.io/f/xxxx" }
+              - { name: messageTemplate, label: "Shablloni i mesazhit", widget: text, hint: "Mund të përdorësh {name} {colorway} {size} {price} {url}." }
+          - name: delivery
+            label: "Dërgesa"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: priceNote, label: "Çmimi i dërgesës (tekst)", widget: string, required: false }
+              - { name: freeOver, label: "Falas mbi (€)", widget: number, value_type: int, required: false }
+              - { name: etaNote, label: "Afati i dërgesës", widget: string, required: false }
+          - name: social
+            label: "Rrjetet sociale"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: instagram, label: "Instagram URL", widget: string, required: false }
+              - { name: tiktok, label: "TikTok URL", widget: string, required: false }
+              - { name: facebook, label: "Facebook URL", widget: string, required: false }
+
+      - name: brands
+        label: "Markat"
+        file: "data/brands.json"
+        fields:
+          - name: brands
+            label: "Lista e markave"
+            label_singular: "Markë"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: slug, label: "Slug (pa hapësira)", widget: string, hint: "p.sh. new-balance — vetëm shkronja të vogla dhe viza." }
+              - { name: name, label: "Emri", widget: string }
+              - { name: order, label: "Renditja", widget: number, value_type: int, required: false }
+              - { name: description, label: "Përshkrimi", widget: string, required: false }

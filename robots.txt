@@ -1,0 +1,7 @@
+# Tophaxhi Sneakers — robots.txt
+# Lejojmë indeksimin e plotë nga motorët e kërkimit.
+User-agent: *
+Allow: /
+
+# TODO (pronari): vendos domenin tënd përfundimtar më poshtë (p.sh. https://tophaxhi.com/sitemap.xml)
+Sitemap: https://tophaxhi.com/sitemap.xml

@@ -1,0 +1,53 @@
+{
+  "siteUrl": "https://tophaxhi.com",
+  "brandName": "Tophaxhi Sneakers",
+  "signoff": "Rri top.",
+  "tagline": "Më shumë se atlete.",
+
+  "contact": {
+    "instagramHandle": "tophaxhi",
+    "instagramUrl": "https://instagram.com/tophaxhi",
+    "whatsappNumber": "383XXXXXXXX",
+    "whatsappDisplay": "+383 XX XXX XXX",
+    "email": "",
+    "location": "Kosovë",
+    "_todo": "TODO (pronari): vendos handle-in real të IG, numrin e WhatsApp (format ndërkombëtar pa '+' dhe pa hapësira, p.sh. 38344123456), email-in dhe lokacionin."
+  },
+
+  "hero": {
+    "eyebrow": "Sneaker shop · Kosovë",
+    "titleLine1": "Më shumë",
+    "titleLine2": "se atlete.",
+    "subtitle": "Atlete 100% origjinale — Nike, Adidas, Jordan, New Balance. Porosit në DM, WhatsApp ose në faqe dhe paguaj kur t'i marrësh në dorë.",
+    "ctaPrimary": "Shfleto atletet",
+    "ctaSecondary": "Si funksionon"
+  },
+
+  "trustPromises": [
+    { "icon": "cash", "text": "Pagesa në dorë", "enabled": true },
+    { "icon": "shield", "text": "Origjinale 100%", "enabled": true },
+    { "icon": "truck", "text": "Dërgesa në tërë Kosovën", "enabled": true },
+    { "icon": "check", "text": "Provo para se të paguash", "enabled": false }
+  ],
+
+  "featuredIds": ["jordan-5-black-carolina"],
+
+  "order": {
+    "method": "whatsapp",
+    "formspreeEndpoint": "",
+    "_todo": "method = 'whatsapp' (parazgjedhje, pa backend) ose 'formspree'. Nëse zgjedh 'formspree', krijo një formë falas në formspree.io dhe ngjite endpoint-in këtu (p.sh. https://formspree.io/f/xxxx).",
+    "messageTemplate": "Përshëndetje! Dua të porosis:\n{name} ({colorway})\nMadhësia: {size}\nÇmimi: {price}€\nLinku: {url}"
+  },
+
+  "delivery": {
+    "priceNote": "TODO: vendos çmimin e dërgesës (p.sh. 2€) ose 'Falas mbi 50€'.",
+    "freeOver": null,
+    "etaNote": "Zakonisht 1–3 ditë pune në tërë Kosovën."
+  },
+
+  "social": {
+    "instagram": "https://instagram.com/tophaxhi",
+    "tiktok": "",
+    "facebook": ""
+  }
+}

@@ -1,0 +1,10 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local preview / tooling (jo i nevojshëm në GitHub Pages)
+.claude/
+
+# Node (nëse instalohet ndonjëherë)
+node_modules/

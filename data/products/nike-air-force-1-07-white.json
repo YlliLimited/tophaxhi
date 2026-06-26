@@ -1,0 +1,26 @@
+{
+  "id": "nike-air-force-1-07-white",
+  "name": "Nike Air Force 1 '07",
+  "colorway": "Triple White",
+  "brand": "nike",
+  "tier": "everyday",
+  "price": 95,
+  "oldPrice": null,
+  "currency": "EUR",
+  "sizes": [
+    { "eu": 39, "available": true },
+    { "eu": 40, "available": true },
+    { "eu": 41, "available": true },
+    { "eu": 42, "available": true },
+    { "eu": 43, "available": true },
+    { "eu": 44, "available": true },
+    { "eu": 45, "available": true }
+  ],
+  "images": ["/assets/products/_placeholder.svg"],
+  "description": "Nike Air Force 1 '07 në Triple White — klasiku i përditshëm që shkon me gjithçka. Lëkurë e bardhë, shollë Air, padurim i pasosur. 100% origjinale. TODO (pronari): ngarko fotot reale të produktit.",
+  "featured": false,
+  "inStock": true,
+  "dateAdded": "2026-06-24",
+  "seoTitle": "Nike Air Force 1 '07 White — Bli online në Kosovë | Tophaxhi",
+  "seoDescription": "Nike Air Force 1 '07 Triple White origjinale në Kosovë. Atlete e përditshme me pagesë në dorë. Dërgesa në tërë Kosovën."
+}

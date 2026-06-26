@@ -1,0 +1,47 @@
+name: Rigjeneroni index + sitemap
+
+# Kjo ekzekutohet sa herë që ndryshojnë të dhënat (kur pronari publikon nga /admin)
+# ose mund ta nisësh manualisht nga skeda "Actions".
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/products/**'
+      - 'data/reviews/**'
+      - 'data/settings.json'
+      - 'scripts/build-index.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merr kodin
+        uses: actions/checkout@v4
+
+      - name: Vendos Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Ndërto index-et + sitemap
+        run: node scripts/build-index.mjs
+
+      - name: Commit ndryshimet (nëse ka)
+        run: |
+          git config user.name "tophaxhi-bot"
+          git config user.email "actions@github.com"
+          git add data/products-index.json data/reviews-index.json sitemap.xml
+          if git diff --staged --quiet; then
+            echo "Asnjë ndryshim për të kcommit-uar."
+          else
+            git commit -m "chore: rigjeneroni products-index, reviews-index dhe sitemap [skip ci]"
+            git push
+          fi

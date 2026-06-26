@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plotëso porosinë | Tophaxhi Sneakers</title>
+  <meta name="description" content="Plotëso porosinë tënde te Tophaxhi Sneakers. Pagesa në dorë, dërgesa në tërë Kosovën." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#9a0002" />
+  <link rel="icon" href="assets/brand/mark.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch.png" />
+  <link rel="preload" href="assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand-lockup" aria-label="Tophaxhi Sneakers — ballina">
+        <img class="brand-lockup__mark" src="assets/brand/mark.png" alt="" width="38" height="38" />
+        <span class="brand-lockup__text">
+          <span class="brand-lockup__top">Tophaxhi</span>
+          <span class="brand-lockup__sub">Sneakers</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navigimi kryesor">
+        <ul>
+          <li><a href="atletet.html">Atletet</a></li>
+          <li><a href="si-te-porosisesh.html">Si të porosisësh</a></li>
+          <li><a href="rreth-nesh.html">Rreth nesh</a></li>
+          <li><a href="kontakti.html">Kontakti</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="atletet.html" class="btn btn--red" data-desktop-cta>Shfleto atletet</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Hap menynë"><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Menyja mobile">
+      <a href="atletet.html">Atletet</a>
+      <a href="si-te-porosisesh.html">Si të porosisësh</a>
+      <a href="rreth-nesh.html">Rreth nesh</a>
+      <a href="dergesa-kthimet.html">Dërgesa &amp; Kthimet</a>
+      <a href="kontakti.html">Kontakti</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container order-page">
+
+        <div class="section-head">
+          <p class="eyebrow">Porosia</p>
+          <h1 class="display">Plotëso porosinë</h1>
+          <p class="muted">Plotëso të dhënat dhe e dërgojmë porosinë. <strong>Pagesa bëhet në dorë</strong> kur t'i marrësh atletet. Të kontaktojmë për konfirmim.</p>
+        </div>
+
+        <div class="order-page__grid">
+          <!-- Forma -->
+          <form class="order-form" id="order-form" novalidate>
+            <div class="field-block">
+              <label for="o-name">Emri dhe mbiemri <span class="req">*</span></label>
+              <input id="o-name" name="name" type="text" autocomplete="name" required />
+              <small class="err" data-err="name"></small>
+            </div>
+            <div class="field-block">
+              <label for="o-phone">Numri i telefonit <span class="req">*</span></label>
+              <input id="o-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="p.sh. 044 123 456" required />
+              <small class="err" data-err="phone"></small>
+            </div>
+            <div class="field-row">
+              <div class="field-block">
+                <label for="o-city">Qyteti <span class="req">*</span></label>
+                <input id="o-city" name="city" type="text" autocomplete="address-level2" required />
+                <small class="err" data-err="city"></small>
+              </div>
+              <div class="field-block">
+                <label for="o-size">Madhësia (EU)</label>
+                <input id="o-size" name="size" type="text" placeholder="p.sh. 42" />
+              </div>
+            </div>
+            <div class="field-block">
+              <label for="o-address">Adresa</label>
+              <input id="o-address" name="address" type="text" autocomplete="street-address" />
+            </div>
+            <div class="field-block">
+              <label for="o-note">Shënim (opsional)</label>
+              <textarea id="o-note" name="note" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--red btn--lg btn--block" id="order-submit">Dërgo porosinë</button>
+            <p class="order-form__disclaimer">Duke dërguar, ti vetëm bën kërkesë — nuk paguan asgjë tani. Të kontaktojmë për konfirmim.</p>
+          </form>
+
+          <!-- Përmbledhja e produktit -->
+          <aside class="order-summary" id="order-summary" aria-label="Përmbledhja e porosisë">
+            <div class="skeleton" style="aspect-ratio:4/5;border-radius:var(--radius)"></div>
+          </aside>
+        </div>
+
+        <!-- Konfirmimi (pas dërgimit) -->
+        <div class="order-confirm" id="order-confirm" hidden>
+          <div class="order-confirm__mark">✓</div>
+          <h2 class="display">Faleminderit! Porosia u dërgua.</h2>
+          <p>Të kontaktojmë së shpejti për konfirmim. <strong>Rri top.</strong></p>
+          <div class="order-confirm__actions">
+            <a href="atletet.html" class="btn btn--red">Vazhdo të shfletosh</a>
+            <a href="index.html" class="btn btn--ghost">Kthehu në ballinë</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__top">
+      <div>
+        <div class="footer-lockup">
+          <div class="footer-lockup__top">Top<br/>Haxhi</div>
+          <div class="footer-lockup__sub">Sneakers</div>
+        </div>
+        <p class="footer-signoff">Rri top.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Faqet</h3>
+        <ul>
+          <li><a href="atletet.html">Atletet</a></li>
+          <li><a href="si-te-porosisesh.html">Si të porosisësh</a></li>
+          <li><a href="rreth-nesh.html">Rreth nesh</a></li>
+          <li><a href="dergesa-kthimet.html">Dërgesa &amp; Kthimet</a></li>
+          <li><a href="kontakti.html">Kontakti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Na shkruaj</h3>
+        <ul>
+          <li><a href="https://instagram.com/tophaxhi" target="_blank" rel="noopener">Instagram · @tophaxhi</a></li>
+          <li><a href="https://wa.me/383XXXXXXXX" target="_blank" rel="noopener">WhatsApp · +383 XX XXX XXX</a></li>
+          <li><span style="color:rgba(244,241,234,.8)">Kosovë · Pagesa në dorë</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <span>© <span data-year>2026</span> Tophaxhi Sneakers. Të gjitha të drejtat e rezervuara.</span>
+      <span>Atlete origjinale · Kosovë</span>
+    </div>
+  </footer>
+
+  <div class="toast-wrap" id="toast-wrap" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/order.js" defer></script>
+</body>
+</html>

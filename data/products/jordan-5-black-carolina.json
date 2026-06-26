@@ -1,0 +1,25 @@
+{
+  "id": "jordan-5-black-carolina",
+  "name": "Jordan 5 Retro Low",
+  "colorway": "Black / Carolina (UNC)",
+  "brand": "jordan",
+  "tier": "hype",
+  "price": 240,
+  "oldPrice": 270,
+  "currency": "EUR",
+  "sizes": [
+    { "eu": 40, "available": true },
+    { "eu": 41, "available": true },
+    { "eu": 42, "available": true },
+    { "eu": 43, "available": false },
+    { "eu": 44, "available": true },
+    { "eu": 45, "available": false }
+  ],
+  "images": ["/assets/products/_placeholder.svg"],
+  "description": "Jordan 5 Retro Low në 'Black Carolina' (UNC) — e zezë me detaje University Blue. Një drop hype me siluetë legjendare dhe shollë reflektive. Numër i kufizuar. 100% origjinale, garantojmë. TODO (pronari): ngarko fotot reale.",
+  "featured": true,
+  "inStock": true,
+  "dateAdded": "2026-06-26",
+  "seoTitle": "Jordan 5 Low Black Carolina (UNC) — Bli në Kosovë | Tophaxhi",
+  "seoDescription": "Jordan 5 Retro Low 'Black Carolina' origjinale në Kosovë. Bomba e javës te Tophaxhi. Pagesa në dorë, dërgesa në tërë Kosovën."
+}
