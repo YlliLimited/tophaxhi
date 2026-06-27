@@ -77,11 +77,11 @@
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 
   /* Type scale (mobile-first, rritet me clamp) */
-  --fs-hero:   clamp(2.75rem, 11vw, 6.5rem);
+  --fs-hero:   clamp(3rem, 9vw, 7rem);
   --fs-h1:     clamp(2rem, 7vw, 3.5rem);
   --fs-h2:     clamp(1.6rem, 5.5vw, 2.6rem);
   --fs-h3:     clamp(1.15rem, 4vw, 1.5rem);
-  --fs-lead:   clamp(1rem, 2.6vw, 1.2rem);
+  --fs-lead:   clamp(0.7rem, 2.4vw, 1rem);
   --fs-body:   1rem;
   --fs-sm:     0.875rem;
   --fs-xs:     0.75rem;
@@ -208,7 +208,7 @@ h1, h2, h3, h4 { line-height: 1.02; font-weight: 400; }
 .btn {
   --btn-bg: var(--ink); --btn-fg: var(--white); --btn-bd: var(--ink);
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5em;
-  font-weight: 600; font-size: var(--fs-body); line-height: 1;
+  font-weight: 600; font-size: var(--fs-lead); line-height: 1;
   padding: 0.95em 1.4em; border-radius: var(--radius-sm);
   background: var(--btn-bg); color: var(--btn-fg);
   border: 2px solid var(--btn-bd);
@@ -343,7 +343,7 @@ h1, h2, h3, h4 { line-height: 1.02; font-weight: 400; }
 }
 .hero__title { font-size: var(--fs-hero); line-height: 1.02; margin: 0.3em 0 0rem; }
 .hero__title .accent { color: var(--top-red); }
-.hero__sub { font-size: var(--fs-lead);  color: var(--ink-70); margin: 0 auto; max-width: 40ch; margin-bottom: clamp(1.5rem, 4vw, 3rem); padding: 0 1rem; }
+.hero__sub { font-size: var(--fs-lead);  color: var(--ink-70); margin: 0 auto; max-width: 46ch; margin-bottom: clamp(1.5rem, 4vw, 3rem); padding: 0 1rem; }
 .hero__cta { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; justify-content: center; align-items: center; }
 .hero__signoff {
   font-family: var(--font-display); text-transform: uppercase; color: var(--top-red);
