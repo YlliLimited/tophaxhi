@@ -1,9 +1,40 @@
 {
   "brands": [
-    { "slug": "nike",        "name": "Nike",        "order": 1, "description": "Klasikët dhe hype-i nga Nike — Air Force, Air Max, Dunk." },
-    { "slug": "adidas",      "name": "Adidas",      "order": 2, "description": "Campus, Samba, Gazelle — terrace klasik." },
-    { "slug": "jordan",      "name": "Jordan",      "order": 3, "description": "Air Jordan — ikona të vërteta të kulturës sneaker." },
-    { "slug": "new-balance", "name": "New Balance", "order": 4, "description": "550, 2002R, 9060 — rehati dhe stil." },
-    { "slug": "puma",        "name": "Puma",        "order": 5, "description": "Suede dhe modele sportive." }
+    {
+      "slug": "nike",
+      "name": "Nike",
+      "order": 1,
+      "description": "Klasikët dhe hype-i nga Nike — Air Force, Air Max, Dunk."
+    },
+    {
+      "slug": "adidas",
+      "name": "Adidas",
+      "order": 2,
+      "description": "Campus, Samba, Gazelle — terrace klasik."
+    },
+    {
+      "slug": "jordan",
+      "name": "Jordan",
+      "order": 3,
+      "description": "Air Jordan — ikona të vërteta të kulturës sneaker."
+    },
+    {
+      "slug": "new-balance",
+      "name": "New Balance",
+      "order": 4,
+      "description": "550, 2002R, 9060 — rehati dhe stil."
+    },
+    {
+      "slug": "puma",
+      "name": "Puma",
+      "order": 5,
+      "description": "Suede dhe modele sportive."
+    },
+    {
+      "slug": "karl-lagerfeld",
+      "name": "Karl Lagerfeld",
+      "order": null,
+      "description": ""
+    }
   ]
 }
