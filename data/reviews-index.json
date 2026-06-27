@@ -1,24 +1,5 @@
 {
   "_generated": "Gjenerohet automatikisht nga GitHub Action prej /data/reviews/*.json. MOS e ndrysho me dorë.",
-  "updated": "2026-06-26",
-  "reviews": [
-    {
-      "id": "review-001",
-      "name": "Drilon",
-      "city": "Prishtinë",
-      "rating": 5,
-      "text": "Erdhën shumë shpejt dhe origjinale. Pagova në dorë, pa stres. Rekomandoj!",
-      "image": "/assets/products/_placeholder.svg",
-      "order": 1
-    },
-    {
-      "id": "review-002",
-      "name": "Arta",
-      "city": "Prizren",
-      "rating": 5,
-      "text": "Cilësia top, komunikim i shpejtë në DM. Madhësia perfekte. Do të blej prapë!",
-      "image": "/assets/products/_placeholder.svg",
-      "order": 2
-    }
-  ]
+  "updated": "2026-06-27",
+  "reviews": []
 }
