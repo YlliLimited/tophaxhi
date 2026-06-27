@@ -66,7 +66,7 @@
   --top-red-dark: #6f0001;     /* hover/pressed e kuqe */
   --ink:      #1f1f1f;         /* Ink — gati e zezë */
   --white:    #FFFFFF;
-  --concrete: #efe6dd;         /* Cream — sfond i butë i seksioneve */
+  --concrete: #f4f4f5;         /* gri shumë e lehtë — mbushje delikate (badge, skeleton, placeholder) */
   --ink-70:   rgba(31,31,31,0.70);
   --ink-40:   rgba(31,31,31,0.42);
   --hairline: rgba(31,31,31,0.13);
@@ -105,8 +105,8 @@
   --glass-strong: rgba(255,255,255,0.80);   /* për tekst të lexueshëm */
   --glass-edge:   rgba(255,255,255,0.70);   /* buzë e ndritshme (highlight) */
   --glass-line:   rgba(31,31,31,0.08);
-  --glass-dark:   rgba(31,31,31,0.55);      /* xham mbi sfond të errët */
-  --glass-dark-2: rgba(31,31,31,0.72);
+  --glass-dark:   rgba(8,8,8,0.74);         /* xham i ZI (jo gri) */
+  --glass-dark-2: rgba(8,8,8,0.88);         /* xham i zi, i errët */
   --glass-dark-edge: rgba(255,255,255,0.14);
   --blur:    saturate(1.7) blur(14px);
   --blur-lg: saturate(1.8) blur(24px);
@@ -135,13 +135,7 @@ body {
   font-size: var(--fs-body);
   line-height: 1.55;
   color: var(--ink);
-  /* Sfond ambiental — gradient kremë me shkëlqime të kuqe të lehta, që xhami të ketë çfarë të thyejë */
-  background:
-    radial-gradient(42% 38% at 10% 6%, rgba(154,0,2,0.13), transparent 70%),
-    radial-gradient(46% 42% at 94% 26%, rgba(154,0,2,0.10), transparent 72%),
-    radial-gradient(52% 48% at 72% 100%, rgba(154,0,2,0.09), transparent 72%),
-    linear-gradient(160deg, #f7f2ec 0%, #efe6dd 52%, #e7ddd1 100%);
-  background-attachment: fixed;
+  background: var(--white);   /* e bardhë e pastër */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -177,12 +171,20 @@ h1, h2, h3, h4 { line-height: 1.02; font-weight: 400; }
 .section--concrete { background: var(--concrete); }
 .section--ink { background: var(--ink); color: var(--white); }
 
-/* Anton është font i lartë, "all-caps" — i jepet më shumë frymëmarrje vertikale
-   që rreshtat dhe theksat (Ë, Ç) të mos ngjeshen apo priten. */
-.display { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.08; padding-block: 0.04em; }
+/* Anton ka "ascent" të madhe brendazi → krijon hapësirë të çuditshme sipër shkronjave.
+   'text-box: trim-both cap alphabetic' e pret atë hapësirë që titujt të rrinë të balancuar
+   (mbështetet në Chrome/Safari moderne; line-height-i është fallback i pastër për të tjerët). */
+.display,
+.step__num, .sheet__title, .pdp__desc-title,
+.brand-lockup__top, .footer-lockup__top, .footer-lockup__sub,
+.footer-signoff, .hero__signoff, .error-hero .code {
+  text-box: trim-both cap alphabetic;
+}
+.display { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.04; }
 .eyebrow {
   font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.14em; color: var(--top-red);
+  margin-bottom: 0.55rem;   /* hapësirë mes mbi-titullit dhe titullit (Anton) */
 }
 .muted { color: var(--ink-70); }
 .visually-hidden {
@@ -324,7 +326,7 @@ h1, h2, h3, h4 { line-height: 1.02; font-weight: 400; }
   display: grid; gap: 1.5rem; align-items: center;
   padding-block: clamp(2.5rem, 7vw, 5rem);
 }
-.hero__title { font-size: var(--fs-hero); line-height: 1.04; margin: 0.12em 0 0.22em; }
+.hero__title { font-size: var(--fs-hero); line-height: 1.02; margin: 0.06em 0 0.35rem; }
 .hero__title .accent { color: var(--top-red); }
 .hero__sub { font-size: var(--fs-lead); color: var(--ink-70); max-width: 46ch; }
 .hero__cta { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
@@ -706,28 +708,24 @@ body.has-sticky-bar { padding-bottom: 76px; }
  *  - Header-i merr blur përmes ::before që menyja mobile (fixed) të mos bllokohet.
  * ==================================================================== */
 
-/* Seksionet — kryesisht transparente që sfondi ambiental të duket */
+/* Seksionet — sfond i bardhë i pastër */
 .hero { background: transparent; }
-.section--concrete {
-  background: rgba(255,255,255,0.28);
-  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
-  border-block: 1px solid var(--glass-edge);
-}
+.section--concrete { background: transparent; }
 .section--ink { background: var(--glass-dark-2); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); }
 
-/* Header */
+/* Header — xham i bardhë i tejdukshëm; blur përmes ::before që menyja mobile (fixed) të mos bllokohet */
 .site-header { background: transparent; border-bottom: 0; }
 .site-header::before {
   content: ""; position: absolute; inset: 0;
-  background: var(--glass-2);
+  background: rgba(255,255,255,0.78);
   -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
-  border-bottom: 1px solid var(--glass-edge);
+  border-bottom: 1px solid var(--hairline);
 }
 .site-header__inner { position: relative; z-index: 1; }
 
-/* Menyja mobile — xham i fortë (i lexueshëm) */
+/* Menyja mobile — xham i bardhë i lexueshëm */
 .mobile-nav {
-  background: rgba(247,242,236,0.82);
+  background: rgba(255,255,255,0.92);
   -webkit-backdrop-filter: var(--blur-lg); backdrop-filter: var(--blur-lg);
 }
 
@@ -736,113 +734,89 @@ body.has-sticky-bar { padding-bottom: 76px; }
 @media (min-width: 880px) {
   .nav-search {
     display: flex; align-items: center; gap: 0.45rem;
-    background: rgba(255,255,255,0.55); border: 1px solid var(--glass-edge);
+    background: rgba(255,255,255,0.7); border: 1px solid var(--hairline);
     -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
     border-radius: 999px; padding: 0.42rem 0.9rem; width: 190px;
     transition: width var(--t-med) var(--ease), background var(--t-fast) var(--ease);
   }
-  .nav-search:focus-within { width: 250px; background: rgba(255,255,255,0.88); }
+  .nav-search:focus-within { width: 250px; background: #fff; border-color: var(--ink); }
   .nav-search svg { width: 16px; height: 16px; color: var(--ink-40); flex: none; }
   .nav-search input { border: none; background: none; outline: none; width: 100%; font-size: var(--fs-sm); color: var(--ink); }
 }
 .drawer-search {
   display: flex; align-items: center; gap: 0.5rem;
-  background: rgba(255,255,255,0.62); border: 1px solid var(--glass-edge);
+  background: #fff; border: 1px solid var(--hairline);
   border-radius: 12px; padding: 0.6rem 0.9rem; margin-bottom: 0.9rem;
 }
 .drawer-search svg { width: 18px; height: 18px; color: var(--ink-40); flex: none; }
 .drawer-search input { border: none; background: none; outline: none; width: 100%; font-size: 1rem; color: var(--ink); }
 
-/* Trust bar — xham i errët */
+/* Trust bar — xham i ZI */
 .trust-bar {
   background: var(--glass-dark-2);
   -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
   border-bottom: 1px solid var(--glass-dark-edge);
 }
 
-/* Butonat — sheen xhami; primari mbetet i lexueshëm */
-.btn { box-shadow: var(--glass-shadow); }
+/* Butonat — të pastër; primari me sheen të lehtë */
+.btn { box-shadow: var(--shadow-sm); }
 .btn--red {
   background-image: linear-gradient(rgba(255,255,255,0.16), rgba(255,255,255,0) 60%);
-  border-color: rgba(255,255,255,0.28);
+  border-color: var(--top-red);
 }
-.btn--ghost {
-  --btn-bg: var(--glass-2); --btn-fg: var(--ink); --btn-bd: var(--glass-edge);
-  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
-}
-.btn--ghost:hover { --btn-bg: rgba(31,31,31,0.88); --btn-fg: #fff; }
-.btn--light { --btn-bg: rgba(255,255,255,0.78); --btn-bd: var(--glass-edge); -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm); }
-.btn--wa { background-image: linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0)); border-color: rgba(255,255,255,0.3); }
-.btn--ig { --btn-bg: rgba(255,255,255,0.72); --btn-bd: var(--glass-edge); -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm); }
+.btn--ghost { --btn-bg: transparent; --btn-fg: var(--ink); --btn-bd: var(--ink); }
+.btn--ghost:hover { --btn-bg: var(--ink); --btn-fg: #fff; }
+.btn--light { --btn-bg: #fff; --btn-fg: var(--ink); --btn-bd: #fff; }
+.btn--wa { background-image: linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0)); }
+.btn--ig { --btn-bg: #fff; --btn-fg: var(--ink); --btn-bd: var(--ink); }
 .btn--viber { --btn-bg: #7360f2; --btn-fg: #fff; --btn-bd: #7360f2; background-image: linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0)); }
 
-/* Kartat e produkteve — transparente + buzë xhami, PA blur (performancë) */
-.product-card {
-  background: rgba(255,255,255,0.50);
-  border: 1px solid var(--glass-edge);
-  box-shadow: var(--glass-shadow);
-}
-.product-card__media { background: rgba(255,255,255,0.42); border-bottom: 1px solid var(--glass-line); }
-@media (hover: hover) { .product-card:hover { box-shadow: var(--glass-shadow-lg); border-color: rgba(255,255,255,0.85); } }
+/* Kartat e produkteve — të bardha të pastra */
+.product-card { background: var(--white); border: 1px solid var(--hairline); box-shadow: var(--shadow-sm); }
+.product-card__media { background: var(--white); border-bottom: 1px solid var(--hairline); }
+@media (hover: hover) { .product-card:hover { box-shadow: var(--shadow-lg); border-color: var(--ink-40); } }
 
 /* Chip-et e markave */
-.brand-chip {
-  background: rgba(255,255,255,0.45);
-  border: 1px solid var(--glass-edge);
-  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
-}
-.brand-chip:hover { background: rgba(255,255,255,0.7); }
+.brand-chip { background: var(--white); border: 1px solid var(--hairline); }
+.brand-chip:hover { background: var(--white); border-color: var(--top-red); color: var(--top-red); }
 
 /* Filtrat */
-.filters__search, .field select {
-  background-color: rgba(255,255,255,0.55);
-  border-color: var(--glass-edge);
-  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
-}
-.chip { background: rgba(255,255,255,0.5); border-color: var(--glass-edge); -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm); }
+.filters__search, .field select { background-color: var(--white); border-color: var(--hairline); }
+.chip { background: var(--white); border-color: var(--hairline); }
 
-/* Hapat / steps, reviews, contact */
-.step, .review-card, .contact-card {
-  background: rgba(255,255,255,0.5);
-  border: 1px solid var(--glass-edge);
-  box-shadow: var(--glass-shadow);
-  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
-}
-.review-card__img { background: rgba(255,255,255,0.4); }
+/* Hapat / steps, reviews, contact — të bardha */
+.step, .review-card, .contact-card { background: var(--white); border: 1px solid var(--hairline); box-shadow: var(--shadow-sm); }
+.review-card__img { background: var(--concrete); }
 
-/* Trust-block i errët — xham i errët */
+/* Trust-block — xham i ZI */
 .trust-block {
   background: var(--glass-dark-2);
   -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
   border: 1px solid var(--glass-dark-edge);
-  box-shadow: var(--glass-shadow-lg);
+  box-shadow: var(--shadow-lg);
 }
 
 /* PDP */
-.pdp__main-img { background: rgba(255,255,255,0.5); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
-.pdp__thumb { background: rgba(255,255,255,0.5); border-color: var(--glass-edge); }
-.pdp__assurance {
-  background: rgba(255,255,255,0.45);
-  border: 1px solid var(--glass-edge);
-  -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm);
-}
-.size-btn { background: rgba(255,255,255,0.5); border-color: var(--glass-edge); }
+.pdp__main-img { background: var(--white); border: 1px solid var(--hairline); box-shadow: var(--shadow-sm); }
+.pdp__thumb { background: var(--white); border-color: var(--hairline); }
+.pdp__assurance { background: var(--concrete); border: 1px solid var(--hairline); }
+.size-btn { background: var(--white); border-color: var(--hairline); }
 
-/* Faqet info — page hero (errët) si xham i errët */
+/* Faqet info — page hero = xham i ZI */
 .page-hero {
   background: var(--glass-dark-2);
   -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
   border-bottom: 1px solid var(--glass-dark-edge);
 }
 
-/* Sticky bar + sheet + toast — xham */
+/* Sticky bar + sheet = xham i bardhë; toast = xham i zi */
 .sticky-bar {
-  background: rgba(255,255,255,0.72);
+  background: rgba(255,255,255,0.88);
   -webkit-backdrop-filter: var(--blur-lg); backdrop-filter: var(--blur-lg);
-  border-top: 1px solid var(--glass-edge);
+  border-top: 1px solid var(--hairline);
 }
 .sheet {
-  background: rgba(247,242,236,0.82);
+  background: rgba(255,255,255,0.92);
   -webkit-backdrop-filter: var(--blur-lg); backdrop-filter: var(--blur-lg);
   box-shadow: var(--glass-shadow-lg);
 }
@@ -853,17 +827,12 @@ body.has-sticky-bar { padding-bottom: 76px; }
 }
 
 /* State / skeleton */
-.state { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: var(--blur-sm); backdrop-filter: var(--blur-sm); }
+.state { background: var(--concrete); }
 
-/* Footer (mbi të kuqe) — panele xhami të lehta */
-.footer-col { }
-
-/* Fallback: nëse backdrop-filter s'mbështetet, përdor sfond më të errët/opak */
+/* Fallback: nëse backdrop-filter s'mbështetet → ngjyra solide */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .site-header::before { background: rgba(255,255,255,0.96); }
-  .mobile-nav { background: #f4efe8; }
-  .trust-bar, .section--ink, .page-hero, .trust-block, .toast { background: var(--ink); }
-  .product-card, .step, .review-card, .contact-card, .brand-chip { background: #fff; }
+  .site-header::before, .mobile-nav, .sticky-bar, .sheet { background: #fff; }
+  .trust-bar, .section--ink, .page-hero, .trust-block, .toast { background: #0a0a0a; }
 }
 
 /* ------------------------------------------------------------------ *
