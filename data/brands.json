@@ -33,8 +33,8 @@
     {
       "slug": "karl-lagerfeld",
       "name": "Karl Lagerfeld",
-      "order": null,
-      "description": ""
+      "order": 6,
+      "description": "Karl Lagerfeld"
     }
   ]
 }
