@@ -1,5 +1,15 @@
 {
   "_generated": "Gjenerohet automatikisht nga GitHub Action prej /data/reviews/*.json. MOS e ndrysho me dorë.",
   "updated": "2026-06-27",
-  "reviews": []
+  "reviews": [
+    {
+      "name": "Filan Fisteku",
+      "city": "Prishtinë",
+      "rating": 5,
+      "text": "Patikat super, thanks njeri.",
+      "image": "/assets/products/pasted-image-1782557027205.png",
+      "order": null,
+      "id": "review-filan-fisteku-202606271043"
+    }
+  ]
 }
