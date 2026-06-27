@@ -1,0 +1,44 @@
+{
+  "name": "New Balance Made in USA 1300",
+  "colorway": "NB NAV",
+  "brand": "new-balance",
+  "tier": "everyday",
+  "price": 199,
+  "oldPrice": 230,
+  "currency": "EUR",
+  "sizes": [
+    {
+      "eu": 30,
+      "available": true
+    },
+    {
+      "eu": 31,
+      "available": true
+    },
+    {
+      "eu": 32,
+      "available": true
+    },
+    {
+      "eu": 55,
+      "available": true
+    },
+    {
+      "eu": 56,
+      "available": true
+    }
+  ],
+  "images": [
+    "/assets/products/pasted-image-1782557427580.png",
+    "/assets/products/pasted-image-1782557436714.png",
+    "/assets/products/pasted-image-1782557449723.png",
+    "/assets/products/pasted-image-1782557456882.png",
+    "/assets/products/pasted-image-1782557464550.png"
+  ],
+  "description": "Këpucët New Balance Made in USA përmbajnë një vlerë vendase prej 70% ose më shumë. Made in USA përbëjnë një pjesë të kufizuar të shitjeve të New Balance në SHBA. Me mbi 75 vjet mjeshtëri autentike amerikane, New Balance Made in USA është projektuar pa kompromis.",
+  "featured": false,
+  "inStock": true,
+  "dateAdded": "2026-06-27",
+  "seoTitle": "New Balance Made in USA 1300 - Bli në Kosovë - Tophaxhi Sneakers",
+  "seoDescription": "New Balance Made in USA 1300 - Bli në Kosovë - Tophaxhi Sneakers"
+}
