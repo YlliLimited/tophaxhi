@@ -179,7 +179,7 @@ h1, h2, h3, h4 { line-height: 1.02; font-weight: 400; }
 .step__num, .sheet__title, .pdp__desc-title,
 .brand-lockup__top, .footer-lockup__top, .footer-lockup__sub,
 .footer-signoff, .hero__signoff, .error-hero .code {
-  text-box: trim-both cap alphabetic;
+  margin: 3px 0px; 
 }
 .display { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.04; padding-block: 0.18em; }
 /* Hapësirë (padding) sipër/poshtë kudo ku përdoret Anton, që të mos duket i ngjeshur */
@@ -329,9 +329,9 @@ h1, h2, h3, h4 { line-height: 1.02; font-weight: 400; }
   display: grid; gap: 1.5rem; align-items: center;
   padding-block: clamp(2.5rem, 7vw, 5rem);
 }
-.hero__title { font-size: var(--fs-hero); line-height: 1.02; margin: 0.06em 0 0.35rem; }
+.hero__title { font-size: var(--fs-hero); line-height: 1.02; margin: 0.3em 0 0rem; }
 .hero__title .accent { color: var(--top-red); }
-.hero__sub { font-size: var(--fs-lead); color: var(--ink-70); max-width: 46ch; }
+.hero__sub { font-size: var(--fs-lead); color: var(--ink-70); max-width: 46ch; margin-bottom: 1.5rem; }
 .hero__cta { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
 .hero__signoff {
   font-family: var(--font-display); text-transform: uppercase; color: var(--top-red);
@@ -467,9 +467,9 @@ h1, h2, h3, h4 { line-height: 1.02; font-weight: 400; }
 .site-footer a { color: var(--cream); }
 .site-footer__top { display: grid; gap: 2rem; padding-block: clamp(2.5rem, 6vw, 4rem); }
 @media (min-width: 760px) { .site-footer__top { grid-template-columns: 1.4fr 1fr 1fr; } }
-.footer-lockup__top { font-family: var(--font-display); text-transform: uppercase; font-size: clamp(2.2rem, 8vw, 3.4rem); line-height: 0.82; }
+.footer-lockup__top { font-family: var(--font-display); text-transform: uppercase; font-size: clamp(2.2rem, 8vw, 3.4rem); line-height: 1; }
 .footer-lockup__sub { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.55em; font-size: 1rem; padding-left: 4px; }
-.footer-signoff { font-family: var(--font-display); text-transform: uppercase; font-size: 1.4rem; letter-spacing: 0.06em; margin-top: 0.8rem; }
+.footer-signoff { font-family: var(--font-display); text-transform: uppercase; font-size: 1.4rem; letter-spacing: 0.06em; margin-top: 0.8rem; padding-left: 4px;}
 .footer-col h3 { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.8; margin-bottom: 0.8rem; font-weight: 700; }
 .footer-col li { margin-bottom: 0.5rem; }
 .footer-col a:hover { text-decoration: underline; }
