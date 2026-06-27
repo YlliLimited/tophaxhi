@@ -48,6 +48,47 @@
       "id": "new-balance-made-in-usa-1300"
     },
     {
+      "name": "Puma Suede Classic",
+      "colorway": "PUMA Navy",
+      "brand": "puma",
+      "tier": "everyday",
+      "price": 90,
+      "oldPrice": 100,
+      "currency": "EUR",
+      "sizes": [
+        {
+          "eu": 40,
+          "available": true
+        },
+        {
+          "eu": 41,
+          "available": true
+        },
+        {
+          "eu": 42,
+          "available": true
+        },
+        {
+          "eu": 43,
+          "available": true
+        }
+      ],
+      "images": [
+        "/assets/products/pasted-image-1782557761247.png",
+        "/assets/products/pasted-image-1782557767994.png",
+        "/assets/products/pasted-image-1782557776439.png",
+        "/assets/products/pasted-image-1782557783739.png",
+        "/assets/products/pasted-image-1782557813779.png"
+      ],
+      "description": "Suede doli në skenë në vitin 1968 dhe që atëherë ka ndryshuar gjithçka. Është veshur nga ikona të çdo brezi dhe ka mbetur klasike gjatë gjithë kohës. Menjëherë e dallueshme dhe e rishpikur vazhdimisht, trashëgimia e Suede vazhdon të rritet dhe të legjitimohet nga individët autentikë dhe ekspresivë që përqafojnë këpucën ikonike. Ky version i fundit është i pajisur me detaje të reja dhe materiale premium për një pamje të freskët.",
+      "featured": false,
+      "inStock": true,
+      "dateAdded": "2026-06-27",
+      "seoTitle": "Puma Suede Classic - Bli në Kosovë - Tophaxhi",
+      "seoDescription": "Puma Suede Classic - Bli në Kosovë - Tophaxhi",
+      "id": "puma-suede-classic"
+    },
+    {
       "name": "Adidas Samba OG",
       "colorway": "Cloud White",
       "brand": "adidas",
